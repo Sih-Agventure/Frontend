@@ -20,8 +20,16 @@ import {
   TabList,
   Tab,
   Spacer,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
 } from "@chakra-ui/react";
-// import { Logo } from "@choc-ui/logo";
+import { Logo } from "@choc-ui/logo";
 import {
   AiOutlineMenu,
   AiFillHome,
@@ -30,6 +38,7 @@ import {
   AiFillBell,
 } from "react-icons/ai";
 import { BsFillCameraVideoFill } from "react-icons/bs";
+import { IoLanguageOutline } from "react-icons/io5"; 
 
 export default function App() {
   const bg = useColorModeValue("white", "gray.800");
@@ -41,6 +50,7 @@ export default function App() {
         bg={bg}
         borderColor="gray.600"
         borderBottomWidth={1}
+        fontWeight="bold"
         w="full"
         px={{ base: 2, sm: 4 }}
         py={4}
@@ -103,10 +113,10 @@ export default function App() {
               display="flex"
               alignItems="center"
             >
-              {/* <Logo /> */}
+              <Logo />
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
-            {/* <chakra.h1 fontSize="xl">Settings</chakra.h1> */}
+            <chakra.h1 fontSize="xl">Agventure</chakra.h1>
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
@@ -119,15 +129,15 @@ export default function App() {
                 leftIcon={<AiOutlineInbox />}
                 size="sm"
               >
-                Inbox
+                Need Help?
               </Button>
-              <Button
+              {/* <Button
                 variant="ghost"
                 leftIcon={<BsFillCameraVideoFill />}
                 size="sm"
               >
                 Videos
-              </Button>
+              </Button> */}
             </HStack>
             <chakra.a
               p={3}
@@ -135,7 +145,8 @@ export default function App() {
               rounded="sm"
               _hover={{ color: useColorModeValue("gray.800", "gray.600") }}
             >
-              <AiFillBell />
+              <IoLanguageOutline style={{height:"25px", width:"25px"}}/>
+              {/* Change Language */}
               <VisuallyHidden>Notifications</VisuallyHidden>
             </chakra.a>
 
@@ -152,25 +163,41 @@ export default function App() {
         justifyContent="space-between"
         mx={2}
         borderWidth={0}
-        overflowX="auto"
+        // overflowX="auto"
+        overflow={"hidden"}
       >
         <Tabs defaultIndex={1} borderBottomColor="transparent">
           <TabList>
-            <Tab py={4} m={0} _focus={{ boxShadow: "none" }}>
-              Basic
+            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+              Rent
             </Tab>
-            <Tab py={4} m={0} _focus={{ boxShadow: "none" }}>
-              Integrations
+            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+              Hire
             </Tab>
-            <Tab py={4} m={0} _focus={{ boxShadow: "none" }}>
-              Notifications
+            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+              Buy
             </Tab>
-            <Tab py={4} m={0} _focus={{ boxShadow: "none" }}>
-              Usage
+            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+              Sell
             </Tab>
-            <Tab py={4} m={0} _focus={{ boxShadow: "none" }}>
-              Billing
-            </Tab>{" "}
+            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+            <Menu>
+              <MenuButton as={Button} >
+                More
+              </MenuButton>
+              <MenuList>
+                <MenuItem minH="48px">
+                  About Us
+                </MenuItem>
+                <MenuItem minH="40px">
+                FAQ
+                </MenuItem>
+                <MenuItem minH="40px">
+                How Agventure Works!
+                </MenuItem>
+              </MenuList>
+            </Menu>
+            </Tab>
           </TabList>
         </Tabs>
         <Spacer />
@@ -186,4 +213,3 @@ export default function App() {
     </Box>
   );
 }
-

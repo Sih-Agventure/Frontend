@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.css-1af6o5{
+  outline: none;
+}
+
+.foot{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: rgb(216, 218, 214);
+  
+}
+
+.foot-links{  
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}

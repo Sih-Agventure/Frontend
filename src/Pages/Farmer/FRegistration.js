@@ -69,7 +69,6 @@ export const FRegistration = () => {
     Pincode:"",
     Mobile:"",
     EmailId:"",
-    bar: "",
   };
   const validationSchema = Yup.object({
     // firstName: Yup.string().required(),
@@ -79,11 +78,10 @@ export const FRegistration = () => {
     // Pincode:"Yup.number().required()",
     // Mobile:"Yup.number()",
     // EmailId:"Yup.string()",
-    // bar: Yup.string(),
   });
   return (
     <Flex flexDir="column" width="100%">
-      <Steps activeStep={activeStep}>
+      <Steps activeStep={activeStep} width="35%" mx="auto" my="7">
         <Step label={"registration"} icon={FiUser}>
           <Formik
             initialValues={initialValues}
@@ -95,11 +93,12 @@ export const FRegistration = () => {
                 borderWidth="1px"
                 rounded="lg"
                 shadow="1px 1px 3px rgba(0,0,0,0.3)"
-                w="60%"
+                w="35%"
                 p={6}
                 m="10px auto"
                 as="form"
                 onSubmit={handleSubmit}
+                boxShadow="3px 5px #dde9e0"
               >
                 <InputControl name="firstName" label="First Name" />
                 <InputControl name="middleName" label="Middle Name" />
@@ -107,10 +106,9 @@ export const FRegistration = () => {
                 <InputControl name="Aadhar" label="Aadhar Number" />
                 <TextareaControl name="Address" label="Address" />
                 <InputControl name="Pincode" label="Pincode" />
-                <PercentComplete />
-                <ButtonGroup>
-                  <SubmitButton>Submit</SubmitButton>
-                  <ResetButton>Reset</ResetButton>
+                <ButtonGroup ml="50%" mt="7">
+                <ResetButton mr="10" w="130px">Reset</ResetButton>
+                  <SubmitButton w="130px">Next</SubmitButton>
                 </ButtonGroup>
               </Box>
             )}

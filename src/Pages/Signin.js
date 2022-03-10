@@ -16,6 +16,7 @@ import {
   InputRightElement
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
+import { useHistory } from 'react-router-dom';
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -24,6 +25,7 @@ const Signin = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
+  let history=  useHistory();
 
   return (
     <Flex
@@ -42,7 +44,7 @@ const Signin = () => {
       >
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Welcome</Heading>
-        <Box minW={{ base: "90%", md: "468px" }}>
+        <Box minW={{ base: "90%", md: "768px" }}>
           <form>
             <Stack
               spacing={4}
@@ -95,9 +97,9 @@ const Signin = () => {
       </Stack>
       <Box>
         New to us?{" "}
-        <Link color="teal.500" href="#">
+        <Button color="teal.500" onClick={() => history.push("signup")}>
           Sign Up
-        </Link>
+        </Button>
       </Box>
     </Flex>
   );

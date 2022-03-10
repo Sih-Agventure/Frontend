@@ -1,5 +1,5 @@
 import React from "react";
-
+// import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi";
 import {
   chakra,
   Box,
@@ -39,10 +39,12 @@ import {
 } from "react-icons/ai";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import { IoLanguageOutline } from "react-icons/io5"; 
+import { useHistory } from 'react-router-dom';
 
 export default function App() {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
+  let history=  useHistory();
 
   return (
     <Box shadow="md">
@@ -50,7 +52,6 @@ export default function App() {
         bg={bg}
         borderColor="gray.600"
         borderBottomWidth={1}
-        fontWeight="bold"
         w="full"
         px={{ base: 2, sm: 4 }}
         py={4}
@@ -88,7 +89,10 @@ export default function App() {
                   onClick={mobileNav.onClose}
                 />
                 <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-                  Dashboard
+                  Log in
+                </Button>
+                <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
+                  Dashboardvdff
                 </Button>
                 <Button
                   w="full"
@@ -120,6 +124,9 @@ export default function App() {
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
+            <Button variant="ghost" leftIcon={<AiFillHome />} size="sm" onClick={() => history.push("Signin")}>
+               Login
+              </Button>
               <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
                 Dashboard
               </Button>

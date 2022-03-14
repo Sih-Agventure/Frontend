@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar'
 import FRegistration from './Pages/Farmer/FRegistration'
 import Rent from "./Pages/Farmer/Rent";
 import Buy from "./Pages/Farmer/Buy";
+import View from "./Pages/Farmer/View";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/signup" exact component={FRegistration} />
       <Route path="/rent" exact component={Rent} />
       <Route path="/buy" exact component={Buy} />
+      <Route path="/equipview" exact component={View} />
       <Footer/>
       </Router>
   );

@@ -116,7 +116,7 @@ function Home() {
       </Flex>
 
       <Flex flexDir="column" mt="1%">
-        <Heading fontSize={50}>Recently Listed Farms For Sale</Heading>
+        <Heading fontSize={50} textAlign="center">Recently Listed Farms For Sale</Heading>
         <Flex flexDir="row" mr="5" mb="10%">
           <Cpwe />
           <Cpwe />

@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import Navbar from './Components/Navbar'
 import FRegistration from './Pages/Farmer/FRegistration'
 import Rent from "./Pages/Farmer/Rent";
+import Buy from "./Pages/Farmer/Buy";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signin" exact component={Signin} />
       <Route path="/signup" exact component={FRegistration} />
       <Route path="/rent" exact component={Rent} />
+      <Route path="/buy" exact component={Buy} />
       <Footer/>
       </Router>
   );

@@ -22,7 +22,7 @@ export default function Buy() {
     <Flex flexDir="column" w="100%">  
       <Flex mt="5"  mx="30%">
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />} mr="5%">
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />} mr="5%" w="20%">
             Filter
           </MenuButton>
           <MenuList>

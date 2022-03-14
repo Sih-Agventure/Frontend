@@ -10,10 +10,16 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
+  import "./card.css"
+  import { Icon } from '@chakra-ui/react'
+import { MdSettings } from 'react-icons/md'
+import { BiBookmark } from "react-icons/bi";
   
   export default function EquipmentCard() {
     return (
-      <Flex mt={5} mr={5}>
+      <Flex mt={5} mr={5}  className="card"
+    
+    >
         <Stack
         
           borderWidth="1px"
@@ -40,22 +46,25 @@ import {
             alignItems="center"
             p={1}
             pt={2}>
-            <Heading fontSize={'2xl'} fontFamily={'body'}>
+           <Flex flexDir="row" alignItems="center" mb="3">
+           <Heading fontSize={'3xl'} fontFamily={'body'} mr="15" >
               Tractor
             </Heading>
-            <Text
+            <Icon as={ BiBookmark} />
+           </Flex >
+            <Text 
               textAlign={'center'}
               color={useColorModeValue('gray.700', 'gray.400')}
               px={3}>
               
-              Start Date : 14/03/2021
+              <span style={{fontWeight:"bold"}}>Start Date :</span> 14/03/2021
             </Text>
             <Text
               textAlign={'center'}
               color={useColorModeValue('gray.700', 'gray.400')}
               px={3}>
               
-             End Date : 17/03/2021
+              <span style={{fontWeight:"bold"}}> End Date : </span>17/03/2021
             </Text>
             <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
               <Badge
@@ -63,14 +72,14 @@ import {
                 py={1}
                 bg={useColorModeValue('gray.50', 'gray.800')}
                 fontWeight={'400'}>
-                Kalyan
+                 <span style={{fontWeight:"bold"}}> Address :</span> Kalyan , Thane
               </Badge>
-              <Badge
+              {/* <Badge
                 px={2}
                 py={1}
                 bg={useColorModeValue('gray.50', 'gray.800')}
                 fontWeight={'400'}>
-                Thane
+                Thane,
               </Badge>
               <Badge
                 px={2}
@@ -78,9 +87,9 @@ import {
                 bg={useColorModeValue('gray.50', 'gray.800')}
                 fontWeight={'400'}>
                 Maharashtra
-              </Badge>
+              </Badge> */}
             </Stack>
-            <Text fontWeight={800} fontSize={'xl'}>
+            <Text fontWeight={800} fontSize={'xl'} >
                ₹ 2,000 / hr
             </Text>
             <Stack

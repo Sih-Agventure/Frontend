@@ -1,6 +1,7 @@
 import { Step, Steps, useSteps } from "chakra-ui-steps";
 import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi";
 import { Formik } from "formik";
+import {user} from "../../redux/api/User/user"
 import {
   CheckboxContainer,
   CheckboxControl,
@@ -41,11 +42,14 @@ import {
   ButtonGroup,
   Radio,
 } from "@chakra-ui/react";
+import {register} from "../../redux/api/User/user"
+
 // const steps = [
 //   { label: "Registration", icon: FiUser },
 //   { label: "Verification", icon: FiClipboard },
 //   { label: "Submit", icon: FiDollarSign },
 // ]
+
 
 export const FRegistration = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
@@ -54,8 +58,9 @@ export const FRegistration = () => {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const onSubmit = (values) => {
-    sleep(300).then(() => {
+    sleep(300).then(async() => {
       window.alert(JSON.stringify(values, null, 2));
+      const res = await register(values);
       nextStep();
     });
   };
@@ -100,11 +105,13 @@ export const FRegistration = () => {
                 onSubmit={handleSubmit}
                 boxShadow="3px 5px #dde9e0"
               >
+                <InputControl name="email" label="Email" />
+                <InputControl name="password" label="Password" />
                 <InputControl name="firstName" label="First Name" />
                 <InputControl name="middleName" label="Middle Name" />
                 <InputControl name="lastName" label="Last Name" />
-                <InputControl name="Aadhar" label="Aadhar Number" />
-                <TextareaControl name="Address" label="Address" />
+                <InputControl name="username" label="Aadhar Number" />
+                <TextareaControl name="location" label="Address" />
                 <InputControl name="Pincode" label="Pincode" />
                 <ButtonGroup ml="50%" mt="7">
                 <ResetButton mr="10" w="130px">Reset</ResetButton>

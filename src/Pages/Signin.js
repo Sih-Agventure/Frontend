@@ -27,6 +27,14 @@ const Signin = () => {
   const handleShowClick = () => setShowPassword(!showPassword);
   let history=  useHistory();
 
+  const onSubmit = (values) => {
+    sleep(300).then(async() => {
+      window.alert(JSON.stringify(values, null, 2));
+      const res = await login(values);
+      sessionStorage.setItem("access", res.data.token);
+      nextStep();
+    });
+  };
   return (
     <Flex
       flexDirection="column"
@@ -102,7 +110,7 @@ const Signin = () => {
       </Stack>
       <Box mb="10%" mt="1%">
         New to us?{" "}
-        <Button color="teal.500" onClick={() => history.push("signup")}>
+        <Button color="teal.500" onClick={onSubmit}>
           Sign Up
         </Button>
       </Box>

@@ -50,7 +50,7 @@ import { BiBookmark } from "react-icons/bi";
            <Heading fontSize={'3xl'} fontFamily={'body'} mr="15" >
               Tractor
             </Heading>
-            <Icon as={ BiBookmark} />
+            <Icon as={ BiBookmark}  cursor="pointer"/>
            </Flex >
             <Text 
               textAlign={'center'}

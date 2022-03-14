@@ -19,6 +19,8 @@ import {
   Tabs,
   TabList,
   Tab,
+  TabPanels,
+  TabPanel,
   Spacer,
   Menu,
   MenuButton,
@@ -38,13 +40,13 @@ import {
   AiFillBell,
 } from "react-icons/ai";
 import { BsFillCameraVideoFill } from "react-icons/bs";
-import { IoLanguageOutline } from "react-icons/io5"; 
-import { useHistory } from 'react-router-dom';
+import { IoLanguageOutline } from "react-icons/io5";
+import { useHistory } from "react-router-dom";
 
 export default function App() {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
-  let history=  useHistory();
+  let history = useHistory();
 
   return (
     <Box shadow="md">
@@ -124,8 +126,13 @@ export default function App() {
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
-            <Button variant="ghost" leftIcon={<AiFillHome />} size="sm" onClick={() => history.push("Signin")}>
-               Login
+              <Button
+                variant="ghost"
+                leftIcon={<AiFillHome />}
+                size="sm"
+                onClick={() => history.push("Signin")}
+              >
+                Login
               </Button>
               <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
                 Dashboard
@@ -152,7 +159,7 @@ export default function App() {
               rounded="sm"
               _hover={{ color: useColorModeValue("gray.800", "gray.600") }}
             >
-              <IoLanguageOutline style={{height:"25px", width:"25px"}}/>
+              <IoLanguageOutline style={{ height: "25px", width: "25px" }} />
               {/* Change Language */}
               <VisuallyHidden>Notifications</VisuallyHidden>
             </chakra.a>
@@ -174,7 +181,11 @@ export default function App() {
         overflow={"hidden"}
       >
         <Tabs defaultIndex={1} borderBottomColor="transparent">
-          <TabList>
+          <TabList
+            font-family="sans-serif"
+            font-size="x-large"
+            font-weight="400"
+          >
             <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
               Rent
             </Tab>
@@ -188,24 +199,17 @@ export default function App() {
               Sell
             </Tab>
             <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
-            <Menu>
-              <MenuButton as={Button} >
-                More
-              </MenuButton>
-              <MenuList>
-                <MenuItem minH="48px">
-                  About Us
-                </MenuItem>
-                <MenuItem minH="40px">
-                FAQ
-                </MenuItem>
-                <MenuItem minH="40px">
-                How Agventure Works!
-                </MenuItem>
-              </MenuList>
-            </Menu>
+              <Menu>
+                <MenuButton as={Button}>More</MenuButton>
+                <MenuList>
+                  <MenuItem minH="48px">About Us</MenuItem>
+                  <MenuItem minH="40px">FAQ</MenuItem>
+                  <MenuItem minH="40px">How Agventure Works!</MenuItem>
+                </MenuList>
+              </Menu>
             </Tab>
           </TabList>
+
         </Tabs>
         <Spacer />
         <HStack spacing={3} alignItems="center">

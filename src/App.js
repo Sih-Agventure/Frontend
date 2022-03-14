@@ -6,6 +6,7 @@ import Signin from "./Pages/Signin";
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar'
 import FRegistration from './Pages/Farmer/FRegistration'
+import Rent from "./Pages/Farmer/Rent";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/about" exact component={About} />
       <Route path="/signin" exact component={Signin} />
       <Route path="/signup" exact component={FRegistration} />
+      <Route path="/rent" exact component={Rent} />
       <Footer/>
       </Router>
   );

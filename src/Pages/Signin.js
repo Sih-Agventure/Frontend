@@ -38,27 +38,28 @@ const Signin = () => {
     >
       <Stack
         flexDir="column"
-        mb="2"
         justifyContent="center"
         alignItems="center"
       >
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Welcome</Heading>
-        <Box minW={{ base: "90%", md: "768px" }}>
+        <Box minW={{ base: "90%", md: "568px" }}>
           <form>
             <Stack
               spacing={4}
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
+              height="32vh"
             >
               <FormControl>
-                <InputGroup>
+                <InputGroup >
                   <InputLeftElement
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
+                    height="100%"
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="Email Address" height="60px" />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -66,28 +67,32 @@ const Signin = () => {
                   <InputLeftElement
                     pointerEvents="none"
                     color="gray.300"
+                    height="100%"
                     children={<CFaLock color="gray.300" />}
                   />
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
+                    height="60px"
                   />
-                  <InputRightElement width="4.5rem">
+                  <InputRightElement width="4.5rem" height="100%">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
                       {showPassword ? "Hide" : "Show"}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
                 <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
+                  <Link>Forgot password?</Link>
                 </FormHelperText>
               </FormControl>
               <Button
-                borderRadius={0}
+                borderRadius={"7"}
                 type="submit"
                 variant="solid"
                 colorScheme="teal"
                 width="full"
+                height="60px"
+                fontSize={"larger"}
               >
                 Login
               </Button>
@@ -95,7 +100,7 @@ const Signin = () => {
           </form>
         </Box>
       </Stack>
-      <Box>
+      <Box mb="10%" mt="1%">
         New to us?{" "}
         <Button color="teal.500" onClick={() => history.push("signup")}>
           Sign Up

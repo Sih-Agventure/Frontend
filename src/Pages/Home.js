@@ -74,8 +74,8 @@ function Home() {
         <Flex>
           <ReactPlayer
             style={{ marginTop: "10%" }}
-            url="https://www.youtube.com/watch?v=7sDY4m8KNLc"
-            width="500px"
+            url="https://www.youtube.com/watch?v=-uSmVB1czQQ"
+            width="600px"
             height="500px"
           />
         </Flex>

@@ -125,6 +125,7 @@ export const Rent = () => {
             <InputControl name=" Hiringcost" label="Enter Hiring Cost" />
             {/* <InputControl name="Quantity" label="Aadhar Number" /> */}
             <InputControl name="unit" label="Unit" />
+            
             <InputControl name="DueDate" label="Due Date" />
             <RMIUploader
               isOpen={visible}

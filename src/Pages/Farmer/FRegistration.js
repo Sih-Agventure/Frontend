@@ -71,6 +71,7 @@ export const FRegistration = () => {
     EmailId:"",
   };
   const validationSchema = Yup.object({
+    email:Yup.string().email()
     // firstName: Yup.string().required(),
     // lastName: Yup.string().required(),
     // Aadhar:"Yup.string().required()",
@@ -100,6 +101,8 @@ export const FRegistration = () => {
                 onSubmit={handleSubmit}
                 boxShadow="3px 5px #dde9e0"
               >
+                <InputControl name="email" label="Email" />
+            <InputControl name="password" label="Password" inputProps={{type:'password'}}/>
                 <InputControl name="firstName" label="First Name" />
                 <InputControl name="middleName" label="Middle Name" />
                 <InputControl name="lastName" label="Last Name" />

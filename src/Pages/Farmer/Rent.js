@@ -44,6 +44,8 @@ import {
   ButtonGroup,
   Radio,
 } from "@chakra-ui/react";
+import jwt_decode from "jwt-decode";
+import {postEquipment} from "../../redux/api/User/user"
 
 // const steps = [
 //   { label: "Registration", icon: FiUser },
@@ -57,11 +59,12 @@ export const Rent = () => {
   });
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const onSubmit = (values) => {
-    sleep(300).then(() => {
+  const onSubmit = async(values) => {
+      const user = jwt_decode(window.sessionStorage.getItem("token"))
+      values.id = user.id
+      const res = await postEquipment(values)
       window.alert(JSON.stringify(values, null, 2));
       nextStep();
-    });
   };
 
   const initialValues = {
@@ -120,13 +123,46 @@ export const Rent = () => {
             onSubmit={handleSubmit}
             boxShadow="3px 5px #dde9e0"
           >
-            <InputControl name="Implementname" label="Select Implement Name" />
-            <InputControl name="Specification" label="Enter Specification" />
-            <InputControl name=" Hiringcost" label="Enter Hiring Cost" />
+          <SelectControl
+              label="Equipement Name"
+              name="equipment_name"
+              selectProps={{ placeholder: 'Select Equipment Name' }}
+            >
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </SelectControl>
+            {/* ENter Specification Checkbox */}
+            {/* <InputControl name="Specification" label="Enter Specification" /> */}
+            <CheckboxContainer name="specification" label="Enter Specification">
+            <CheckboxControl name="toppings" value="chicken">
+              Size
+            </CheckboxControl>
+            <CheckboxControl name="toppings" value="ham">
+              Capacity
+            </CheckboxControl>
+            <CheckboxControl name="toppings" value="mushrooms">
+              Power
+            </CheckboxControl>
+            <CheckboxControl name="toppings" value="cheese">
+              Other
+            </CheckboxControl>
+          </CheckboxContainer>
+            <InputControl name=" hiring_cost" label="Enter Hiring Cost" />
             {/* <InputControl name="Quantity" label="Aadhar Number" /> */}
-            <InputControl name="unit" label="Unit" />
             
-            <InputControl name="DueDate" label="Due Date" />
+            {/* Unit dropdown hourly/daily */}
+            <SelectControl
+              label="Enter Unit"
+              name="unit"
+              selectProps={{ placeholder: 'Select Unit' }}
+            >
+              <option value="hourly">Hourly</option>
+              <option value="daily">Daily</option>
+            </SelectControl>
+            
+            <InputControl name="start_date" label="Start Date" inputProps={{type:"date"}}/>
+            <InputControl name="end_date" label="End Date" inputProps={{type:"date"}}/>
             <RMIUploader
               isOpen={visible}
               hideModal={hideModal}

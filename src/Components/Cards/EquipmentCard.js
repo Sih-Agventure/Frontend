@@ -14,8 +14,9 @@ import {
   import { Icon } from '@chakra-ui/react'
 import { MdSettings } from 'react-icons/md'
 import { BiBookmark } from "react-icons/bi";
+import moment from 'moment';
   
-  export default function EquipmentCard() {
+  export default function EquipmentCard(props) {
     return (
       <Flex mt={5} mr={5}  className="card"
     
@@ -35,7 +36,7 @@ import { BiBookmark } from "react-icons/bi";
               objectFit="cover"
               boxSize="100%"
               src={
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo-m51uiOfYIKeUYJP2qNPDR8CX7pB4hKbNA&usqp=CAU'
+                `http://127.0.0.1:5000/${props.props.productImage?.replace("uploads\\","")}`
               }
             />
           </Flex>
@@ -48,7 +49,7 @@ import { BiBookmark } from "react-icons/bi";
             pt={2}>
            <Flex flexDir="row" alignItems="center" mb="3">
            <Heading fontSize={'3xl'} fontFamily={'body'} mr="15" >
-              Tractor
+              {props.props.equipment_name}
             </Heading>
             <Icon as={ BiBookmark} />
            </Flex >
@@ -57,14 +58,14 @@ import { BiBookmark } from "react-icons/bi";
               color={useColorModeValue('gray.700', 'gray.400')}
               px={3}>
               
-              <span style={{fontWeight:"bold"}}>Start Date :</span> 14/03/2021
+              <span style={{fontWeight:"bold"}}>Start Date :</span> {moment(props.props.start_date).format("DD/MM/YYYY")}
             </Text>
             <Text
               textAlign={'center'}
               color={useColorModeValue('gray.700', 'gray.400')}
               px={3}>
               
-              <span style={{fontWeight:"bold"}}> End Date : </span>17/03/2021
+              <span style={{fontWeight:"bold"}}> End Date : </span>{moment(props.props.end_date).format("DD/MM/YYYY")}
             </Text>
             <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
               <Badge
@@ -90,7 +91,7 @@ import { BiBookmark } from "react-icons/bi";
               </Badge> */}
             </Stack>
             <Text fontWeight={800} fontSize={'xl'} >
-               ₹ 2,000 / hr
+               ₹ 2,000 / {props.props.unit}
             </Text>
             <Stack
               width={'100%'}

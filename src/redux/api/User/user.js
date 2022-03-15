@@ -7,3 +7,9 @@ export const register = (data) =>
 
 export const login = async (data) =>    
   axios.post("/api/auth/login",data);
+
+export const postEquipment = async (data) =>    
+axios.post("/api/equipments/list",data);
+
+export const listEquipment = async () =>    
+axios.get("/api/equipments/list");

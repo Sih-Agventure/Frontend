@@ -19,6 +19,7 @@ import SearchField from "react-search-field";
 
 export default function Buy() {
   return (
+    
     <Flex flexDir="column" w="100%">  
       <Grid templateColumns="repeat(3, 1fr)" gap={3}>
         <Equipview />

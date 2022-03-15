@@ -47,16 +47,25 @@ import {
 //   { label: "Submit", icon: FiDollarSign },
 // ]
 
+import { register } from "../../redux/api/User/user";
+import { useHistory } from "react-router-dom";
+
 export const FRegistration = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   });
+  let history = useHistory();
+
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const onSubmit = (values) => {
-    sleep(300).then(() => {
+    sleep(300).then(async() => {
+      const res = await register(values)
+      sessionStorage.setItem("token", res.data.token);
+      history.push("/rent")
       window.alert(JSON.stringify(values, null, 2));
       nextStep();
+
     });
   };
 
@@ -101,7 +110,9 @@ export const FRegistration = () => {
                 onSubmit={handleSubmit}
                 boxShadow="3px 5px #dde9e0"
               >
+
                 <InputControl name="email" label="Email" />
+                <InputControl name="username" label="Username" />
             <InputControl name="password" label="Password" inputProps={{type:'password'}}/>
                 <InputControl name="firstName" label="First Name" />
                 <InputControl name="middleName" label="Middle Name" />

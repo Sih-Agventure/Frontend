@@ -1,113 +1,141 @@
-import { useState } from "react";
 import {
-  Flex,
-  Heading,
-  Input,
-  Button,
-  InputGroup,
+  FormControl,
+  FormLabel,
+  Checkbox,
   Stack,
-  InputLeftElement,
+  Link,
+  Text,
+} from '@chakra-ui/react';
+import {
+  CheckboxContainer,
+  CheckboxControl,
+  CheckboxSingleControl,
+  InputControl,
+  NumberInputControl,
+  PercentComplete,
+  RadioGroupControl,
+  ResetButton,
+  SelectControl,
+  SliderControl,
+  SubmitButton,
+  SwitchControl,
+  TextareaControl,
+} from "formik-chakra-ui";
+import * as Yup from "yup";
+import {
   chakra,
   Box,
-  Link,
+  Flex,
+  useColorModeValue,
+  VisuallyHidden,
+  HStack,
+  Button,
+  useDisclosure,
+  VStack,
+  IconButton,
+  CloseButton,
+  InputGroup,
+  InputLeftElement,
+  Input,
   Avatar,
-  FormControl,
-  FormHelperText,
-  InputRightElement
+  Tabs,
+  TabList,
+  Tab,
+  Spacer,
+  Heading,
+  ButtonGroup,
+  Radio,
 } from "@chakra-ui/react";
-import { FaUserAlt, FaLock } from "react-icons/fa";
-import { useHistory } from 'react-router-dom';
+import { Formik } from "formik";
+import { useHistory } from "react-router-dom";
+// import * as Yup from "yup";
 
-const CFaUserAlt = chakra(FaUserAlt);
-const CFaLock = chakra(FaLock);
 
-const Signin = () => {
-  const [showPassword, setShowPassword] = useState(false);
+import { login } from '../redux/api/User/user'; 
+export default function Signin() {
+  let history = useHistory();
 
-  const handleShowClick = () => setShowPassword(!showPassword);
-  let history=  useHistory();
+  const initialValues = {
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    Aadhar:"",
+    Address:"",
+    Pincode:"",
+    Mobile:"",
+    EmailId:"",
+  };
+  const validationSchema = Yup.object({
+    email:Yup.string().email()
+    // firstName: Yup.string().required(),
+    // lastName: Yup.string().required(),
+    // Aadhar:"Yup.string().required()",
+    // Address:"Yup.string().required()",
+    // Pincode:"Yup.number().required()",
+    // Mobile:"Yup.number()",
+    // EmailId:"Yup.string()",
+  });
+  const onSubmit = async(values) => {
+   
+      const res = await login(values)
+      sessionStorage.setItem("token", res.data.token);
+      history.push("/rent")
+      window.alert(JSON.stringify(values, null, 2));
+      nextStep();
 
+  };
   return (
     <Flex
-      flexDirection="column"
-      width="100wh"
-      height="100vh"
-      backgroundColor="gray.200"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Stack
-        flexDir="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome</Heading>
-        <Box minW={{ base: "90%", md: "568px" }}>
-          <form>
-            <Stack
-              spacing={4}
-              p="1rem"
-              backgroundColor="whiteAlpha.900"
-              boxShadow="md"
-              height="32vh"
-            >
-              <FormControl>
-                <InputGroup >
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<CFaUserAlt color="gray.300" />}
-                    height="100%"
-                  />
-                  <Input type="email" placeholder="Email Address" height="60px" />
-                </InputGroup>
-              </FormControl>
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    color="gray.300"
-                    height="100%"
-                    children={<CFaLock color="gray.300" />}
-                  />
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    height="60px"
-                  />
-                  <InputRightElement width="4.5rem" height="100%">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                <FormHelperText textAlign="right">
-                  <Link>Forgot password?</Link>
-                </FormHelperText>
-              </FormControl>
-              <Button
-                borderRadius={"7"}
-                type="submit"
-                variant="solid"
-                colorScheme="teal"
-                width="full"
-                height="60px"
-                fontSize={"larger"}
+      // minH={'100vh'}
+      align={'center'}
+      justify={'center'}
+      bg={useColorModeValue('gray.50', 'gray.800')}>
+      <Stack spacing={8}>
+        <Stack align={'center'}>
+          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+          <Text fontSize={'lg'} color={'gray.600'}>
+            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+          </Text>
+        </Stack>
+        <Box
+        w="100%"
+          rounded={'lg'}
+          bg={useColorModeValue('white', 'gray.700')}
+          boxShadow={'lg'}
+          // p={8}
+          >
+          <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+          >
+            {({ handleSubmit, values, errors }) => (
+              <Box
+                borderWidth="1px"
+                rounded="lg"
+                shadow="1px 1px 3px rgba(0,0,0,0.3)"
+                // w="35%"
+                p={6}
+                // m="10px auto"
+                as="form"
+                onSubmit={handleSubmit}
+                boxShadow="3px 5px #dde9e0"
               >
-                Login
-              </Button>
-            </Stack>
-          </form>
+
+                <InputControl name="email" label="Email" />
+                <InputControl name="username" label="Username" />
+            <InputControl name="password" label="Password" inputProps={{type:'password'}}/>
+                
+                <ButtonGroup d="flex" justifyContent={"flex-end"} mt="7">
+                {/* <ResetButton mr="10" w="130px">Reset</ResetButton> */}
+                <ResetButton mr="2" >Reset</ResetButton>
+                  <SubmitButton >Login</SubmitButton>
+                </ButtonGroup>
+              </Box>
+            )}
+          </Formik>
         </Box>
       </Stack>
-      <Box mb="10%" mt="1%">
-        New to us?{" "}
-        <Button color="teal.500" onClick={() => history.push("signup")}>
-          Sign Up
-        </Button>
-      </Box>
     </Flex>
   );
-};
-
-export default Signin;
+}

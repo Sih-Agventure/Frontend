@@ -81,7 +81,7 @@ export default function Signin() {
       sessionStorage.setItem("token", res.data.token);
       history.push("/rent")
       window.alert(JSON.stringify(values, null, 2));
-      nextStep();
+    //  nextStep();
 
   };
   return (

@@ -1,26 +1,8 @@
-import {
-    Badge,
-    Button,
-    Center,
-    Flex,
-    Heading,
-    Image,
-    Link,
-    Stack,
-    Text,
-    useColorModeValue,
-    Tag,
-  TagLabel,
-  TagLeftIcon,
-  TagRightIcon,
-  TagCloseButton,
-  } from '@chakra-ui/react';
 
-  import useCollapse from 'react-collapsed';
+export default function BookingPlaced() {
 
-  export default function Equipconf() {
-    return (
-      <Center>
+  return (
+    <Center>
       <Flex mt={5} mr={5}>
         <Stack
         
@@ -137,5 +119,5 @@ import {
         </Stack>
       </Flex>
       </Center>
-    );
-  }
+  );
+}

@@ -12,6 +12,8 @@ import View from "./Pages/Farmer/View";
 import receivedOrders from "./Pages/Farmer/receivedOrders";
 import List from "./Pages/Farmer/List"
 import confirm from "./Pages/Farmer/confirm";
+import BookingPlaced from "./Pages/Farmer/BookingPlaced"
+import BookingReceived from "./Pages/Farmer/BookingReceived";
 
 // import Chat from "./Pages/Farmer/Chat";
 
@@ -27,8 +29,10 @@ function App() {
         <Route path="/rent" exact component={Rent} />
         <Route path="/buy" exact component={Buy} />
       <Route path="/equipview" exact component={View} /> 
+      <Route path="/Equipconf/:id" exact component={BookingReceived} />
       <Route path="/Equipconf" exact component={confirm} />
         <Route path="/receivedOrders" exact component={receivedOrders} /> 
+        <Route path="/bookingplaced" exact component={BookingPlaced} /> 
         <Route path="/list" exact component={List} /> 
       <Footer />
     </Router>

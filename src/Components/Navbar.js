@@ -123,6 +123,7 @@ export default function App() {
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
             <chakra.h1 fontSize="xl">Agventure</chakra.h1>
+           
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
@@ -153,6 +154,7 @@ export default function App() {
                 Videos
               </Button> */}
             </HStack>
+            <div id="google_element"></div>
             <chakra.a
               p={3}
               color={useColorModeValue("gray.800", "inherit")}

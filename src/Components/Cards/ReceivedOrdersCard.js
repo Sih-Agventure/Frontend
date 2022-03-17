@@ -10,8 +10,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import 'leaflet/dist/leaflet.css';
+// import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+// import 'leaflet/dist/leaflet.css';
 
 export default function ReceivedOrdersCard() {
   const position = [51.505, -0.09];
@@ -35,7 +35,7 @@ export default function ReceivedOrdersCard() {
                 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
               }
             /> */}
-         <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{width:"100%"}}>
+         {/* <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{width:"100%"}}>
          <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
@@ -45,7 +45,7 @@ export default function ReceivedOrdersCard() {
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
           </Marker>
-  </MapContainer >
+  </MapContainer > */}
         </Flex>
         <Stack
           flex={1}

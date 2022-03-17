@@ -11,6 +11,8 @@ import Buy from "./Pages/Farmer/Buy";
 import View from "./Pages/Farmer/View";
 import receivedOrders from "./Pages/Farmer/receivedOrders";
 import List from "./Pages/Farmer/List"
+import confirm from "./Pages/Farmer/confirm";
+
 // import Chat from "./Pages/Farmer/Chat";
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
         <Route path="/rent" exact component={Rent} />
         <Route path="/buy" exact component={Buy} />
       <Route path="/equipview" exact component={View} /> 
+      <Route path="/Equipconf" exact component={confirm} />
         <Route path="/receivedOrders" exact component={receivedOrders} /> 
         <Route path="/list" exact component={List} /> 
       <Footer />

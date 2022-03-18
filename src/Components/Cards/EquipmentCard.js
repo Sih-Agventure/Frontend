@@ -28,13 +28,14 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import { useToast } from '@chakra-ui/react'
-
-  export default function EquipmentCard(props) {
+import { useHistory } from "react-router-dom";
+export default function EquipmentCard(props) {
     const toast = useToast()
     const { isOpen, onOpen, onClose } = useDisclosure();
    const [name, setName] = useState("");
    const [startDate, setStartDate] = useState("");
    const [endDate, setEndDate] = useState("");
+   let history = useHistory();
     return (
       <Flex mt={5} mr={5}  className="card"
     
@@ -197,14 +198,17 @@ import { useToast } from '@chakra-ui/react'
         //   });
         // }}
         onClick={() =>
-          toast({
+          {
+            toast({
             title: 'Booking Requested!',
             description: "Your offer has been Received",
             status: 'success',
             duration: 4000,
             isClosable: true,
           })
+          history.push("/")
         }
+      }
       >
         Book Now
       </Button>

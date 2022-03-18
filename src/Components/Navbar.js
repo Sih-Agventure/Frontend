@@ -224,7 +224,12 @@ export default function App() {
               <Menu>
                 <MenuButton as={Button}>More</MenuButton>
                 <MenuList>
-                  <MenuItem minH="48px">About Us</MenuItem>
+                <MenuItem
+                    minH="40px"
+                    onClick={() => history.push("aboutUs")}
+                  >
+                    About Us
+                  </MenuItem>
                   <MenuItem minH="40px">FAQ</MenuItem>
                   <MenuItem minH="40px">How Agventure Works!</MenuItem>
                   <MenuItem
@@ -235,7 +240,7 @@ export default function App() {
                   </MenuItem>
                   <MenuItem
                     minH="40px"
-                    onClick={() => history.push("bookingPlaced")}
+                    onClick={() => history.push("")}
                   >
                     Booking Status
                   </MenuItem>

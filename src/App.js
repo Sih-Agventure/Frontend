@@ -14,6 +14,7 @@ import List from "./Pages/Farmer/List"
 import confirm from "./Pages/Farmer/confirm";
 import BookingPlaced from "./Pages/Farmer/BookingPlaced"
 import BookingReceived from "./Pages/Farmer/BookingReceived";
+import AboutUs from "./Pages/Content/AboutUs";
 
 // import Chat from "./Pages/Farmer/Chat";
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/receivedOrders" exact component={receivedOrders} /> 
         <Route path="/bookingplaced" exact component={BookingPlaced} /> 
         <Route path="/list" exact component={List} /> 
+        <Route path="/aboutUs" exact component={AboutUs} />
       <Footer />
     </Router>
   );

@@ -54,6 +54,7 @@ import { useHistory } from "react-router-dom";
 //   { label: "Submit", icon: FiDollarSign },
 // ]
 
+
 export const Rent = () => {
   const toast = useToast();
   let history = useHistory();
@@ -198,21 +199,20 @@ export const Rent = () => {
               <ResetButton mr="10" w="100px">
                 Reset
               </ResetButton>
-              <SubmitButton
-                w="100px"
-                onClick={() =>
+              <SubmitButton w="130px" 
+              onClick={() =>
+                {
                   toast({
-                    title: "Product Listed!!",
-                    description:
-                      "Your Product have been Listed.Keep on checking your inbox & Order Received",
-                    status: "success",
-                    duration: 4000,
-                    isClosable: true,
-                  })
-                }
-              >
-                Submit
-              </SubmitButton>
+                  title: 'Product Listed!!',
+                  description: "Your Product have been Listed.Keep on checking your inbox & Order Received",
+                  status: 'success',
+                  duration: 4000,
+                  isClosable: true,
+                })
+                history.push("/")  
+              }            
+              }
+              >Submit</SubmitButton>
             </ButtonGroup>
           </Box>
         )}

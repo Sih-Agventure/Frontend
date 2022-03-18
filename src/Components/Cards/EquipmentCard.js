@@ -17,6 +17,9 @@ import {
 import { MdSettings } from 'react-icons/md'
 import { BiBookmark } from "react-icons/bi";
 import moment from 'moment';
+import {uploadOffer} from "../../redux/api/User/user";
+import jwt_decode from "jwt-decode";
+
 import {
   Modal,
   ModalOverlay,
@@ -197,18 +200,23 @@ export default function EquipmentCard(props) {
         //     endDate,
         //   });
         // }}
-        onClick={() =>
+        onClick={async() =>
           {
             toast({
-            title: 'Booking Requested!',
-            description: "Your offer has been Received",
-            status: 'success',
-            duration: 4000,
-            isClosable: true,
-          })
-          history.push("/")
+              title: 'Booking Requested!',
+              description: "Your offer has been Received",
+              status: 'success',
+              duration: 4000,
+              isClosable: true,
+            });
+        const user = jwt_decode(window.sessionStorage.getItem("token"))
+              
+              const res = await uploadOffer({equipment_id:props.props.equipment_id,buyer_id:user.id,price:name,start_date:startDate,end_date:endDate})
+              history.push("/")
+          }
+
         }
-      }
+      
       >
         Book Now
       </Button>

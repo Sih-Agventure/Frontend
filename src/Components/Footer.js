@@ -37,7 +37,7 @@ export default function Footer() {
         align="start"
       >
         <Logo />
-        <Text color="muted">Create beautiful websites remarkably fast.</Text>
+        <Text color="muted">Rent your equipments </Text>
       </Stack>
       <Stack
         direction={{

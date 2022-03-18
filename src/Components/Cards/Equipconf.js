@@ -16,10 +16,14 @@ import {
   TagCloseButton,
   } from '@chakra-ui/react';
   import BookingReceivedTable from "../Tables/BookingReceivedTable"
+  import { useHistory } from "react-router-dom";
 
   import useCollapse from 'react-collapsed';
 
-  export default function Equipconf() {
+  export default function Equipconf(props) {
+    let history = useHistory();
+
+     
     return (
       <Center>
       <Flex mt={5} mr={5}>
@@ -113,7 +117,8 @@ import {
                 rounded={'full'}
                 _focus={{
                   bg: 'gray.200',
-                }}>
+                }}
+                onClick={()=> history.push(`/Equipconf/${props.props.equipment_id}`)}>
                 View Offers
               </Button>
               <Button

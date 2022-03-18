@@ -63,12 +63,13 @@ export const Rent = () => {
   });
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const onSubmit = async (values) => {
-    const user = jwt_decode(window.sessionStorage.getItem("token"));
-    values.id = user.id;
-    const res = await postEquipment(values);
-    // window.alert(JSON.stringify(values, null, 2));
-    nextStep();
+  const onSubmit = async(values) => {
+      const user = jwt_decode(window.sessionStorage.getItem("token"))
+      values.user_id = user.id
+    // console.log(values)
+      const res = await postEquipment(values)
+      // window.alert(JSON.stringify(values, null, 2));
+      nextStep();
   };
 
   const initialValues = {

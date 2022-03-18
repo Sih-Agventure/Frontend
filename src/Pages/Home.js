@@ -8,8 +8,10 @@ import Cards from "../Components/Card";
 import { Flex, Spacer, Heading, Text } from "@chakra-ui/react";
 import SearchField from "react-search-field";
 import ReactPlayer from "react-player";
+import { useHistory } from "react-router-dom";
 
 function Home() {
+  let history = useHistory();
   return (
     <>
       <Flex flexDir="row">
@@ -53,7 +55,9 @@ function Home() {
                   />
                 </TabPanel>
                 <TabPanel>
-                  <Button colorScheme="teal" size="md">
+                  <Button colorScheme="teal" size="md" 
+                  onClick={() => history.push("Signup")}
+                  >
                     Create a Free Account
                   </Button>
                 </TabPanel>
@@ -91,7 +95,7 @@ function Home() {
           fontWeight="semibold"
           textAlign="center"
         >
-          Farmland Made Simple
+          Agventure Made Simple
         </Text>
         <Text
           fontSize="3xl"
@@ -116,7 +120,7 @@ function Home() {
       </Flex>
 
       <Flex flexDir="column" mt="1%">
-        <Heading fontSize={50} textAlign="center">Recently Listed Farms For Sale</Heading>
+        <Heading fontSize={50} textAlign="center">Recently Listed Equipments For Sale</Heading>
         <Flex flexDir="row" mr="5" mb="10%">
           <Cpwe />
           <Cpwe />

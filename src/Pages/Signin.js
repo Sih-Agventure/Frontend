@@ -131,6 +131,9 @@ export default function Signin() {
                 <ResetButton mr="2" >Reset</ResetButton>
                   <SubmitButton >Login</SubmitButton>
                 </ButtonGroup>
+                <Text align={'center'} mt={"3"}>
+                New to our world? <Link color={'blue.400'} href="http://localhost:3000/signup">Register</Link>
+              </Text>
               </Box>
             )}
           </Formik>

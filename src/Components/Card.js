@@ -52,7 +52,7 @@ export default function Cards() {
           roundedBottom="lg"
         >
           <chakra.h1 color="white" fontWeight="bold" fontSize="lg">
-            $129
+          ₹ 129
           </chakra.h1>
           <chakra.button
             px={2}

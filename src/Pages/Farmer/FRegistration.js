@@ -40,6 +40,8 @@ import {
   Heading,
   ButtonGroup,
   Radio,
+  Link,
+  Text
 } from "@chakra-ui/react";
 // const steps = [
 //   { label: "Registration", icon: FiUser },
@@ -62,8 +64,8 @@ export const FRegistration = () => {
     sleep(300).then(async() => {
       const res = await register(values)
       sessionStorage.setItem("token", res.data.token);
-      history.push("/rent")
-      window.alert(JSON.stringify(values, null, 2));
+      // history.push("/rent")
+      // window.alert(JSON.stringify(values, null, 2));
       nextStep();
 
     });
@@ -124,6 +126,9 @@ export const FRegistration = () => {
                 <ResetButton mr="10" w="130px">Reset</ResetButton>
                   <SubmitButton w="130px">Next</SubmitButton>
                 </ButtonGroup>
+                <Text align={'center'} mt={"3"}>
+                Already a User? <Link color={'blue.400'} href="http://localhost:3000/signin">Login</Link>
+              </Text>
               </Box>
             )}
           </Formik>

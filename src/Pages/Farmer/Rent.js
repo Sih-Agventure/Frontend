@@ -46,7 +46,8 @@ import {
 } from "@chakra-ui/react";
 import jwt_decode from "jwt-decode";
 import {postEquipment} from "../../redux/api/User/user"
-
+import { useToast } from '@chakra-ui/react'
+import { useHistory } from "react-router-dom";
 // const steps = [
 //   { label: "Registration", icon: FiUser },
 //   { label: "Verification", icon: FiClipboard },
@@ -54,6 +55,8 @@ import {postEquipment} from "../../redux/api/User/user"
 // ]
 
 export const Rent = () => {
+  const toast = useToast()
+  let history = useHistory();
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   });
@@ -63,7 +66,7 @@ export const Rent = () => {
       const user = jwt_decode(window.sessionStorage.getItem("token"))
       values.id = user.id
       const res = await postEquipment(values)
-      window.alert(JSON.stringify(values, null, 2));
+      // window.alert(JSON.stringify(values, null, 2));
       nextStep();
   };
 
@@ -113,6 +116,7 @@ export const Rent = () => {
       >
         {({ handleSubmit, values, errors }) => (
           <Box
+            
             borderWidth="1px"
             rounded="lg"
             shadow="1px 1px 3px rgba(0,0,0,0.3)"
@@ -175,7 +179,17 @@ export const Rent = () => {
               <ResetButton mr="10" w="130px">
                 Reset
               </ResetButton>
-              <SubmitButton w="130px">Next</SubmitButton>
+              <SubmitButton w="130px" 
+              onClick={() =>
+                toast({
+                  title: 'Product Listed!!',
+                  description: "Your Product have been Listed.Keep on checking your inbox & Order Received",
+                  status: 'success',
+                  duration: 4000,
+                  isClosable: true,
+                })               
+              }
+              >Submit</SubmitButton>
             </ButtonGroup>
           </Box>
         )}

@@ -58,7 +58,7 @@ export default function BookingPlaced() {
                Tractor
             </Heading>
             <Heading  mr={5} mt={2} fontWeight={"light"} fontSize={'30'} fontFamily={'body '} >
-               $9877
+            ₹ 9877
             </Heading>
             </Flex>
             {/* <Text  fontWeight={600} fontSize={'15'}>

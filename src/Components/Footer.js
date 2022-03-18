@@ -13,10 +13,10 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { Logo } from "@choc-ui/logo";
 
 
-export default function App() {
+export default function Footer() {
 
   return (
-    <Container as="footer" role="contentinfo" maxWidth={"70%"}>
+    <Container as="footer" role="contentinfo" maxWidth={"70%"} >
     <Stack
       spacing="8"
       direction={{

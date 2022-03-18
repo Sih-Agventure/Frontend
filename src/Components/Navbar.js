@@ -40,7 +40,7 @@ import {
   AiFillBell,
 } from "react-icons/ai";
 import { BsFillCameraVideoFill } from "react-icons/bs";
-import { IoLanguageOutline } from "react-icons/io5";
+// import { IoLanguageOutline } from "react-icons/io5";
 import { useHistory } from "react-router-dom";
 
 export default function App() {
@@ -123,7 +123,6 @@ export default function App() {
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
             <chakra.h1 fontSize="xl">Agventure</chakra.h1>
-           
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
@@ -153,24 +152,34 @@ export default function App() {
               >
                 Videos
               </Button> */}
+              
+              <div id="google_element" style={{marginTop:"7px"}}></div>
             </HStack>
-            <div id="google_element"></div>
-            <chakra.a
+            
+            {/* <chakra.a
               p={3}
               color={useColorModeValue("gray.800", "inherit")}
               rounded="sm"
               _hover={{ color: useColorModeValue("gray.800", "gray.600") }}
-            >
-              <IoLanguageOutline style={{ height: "25px", width: "25px" }} />
+            > */}
+              {/* <IoLanguageOutline style={{ height: "25px", width: "25px" }} /> */}
               {/* Change Language */}
-              <VisuallyHidden>Notifications</VisuallyHidden>
-            </chakra.a>
+              {/* <VisuallyHidden>Notifications</VisuallyHidden>
+            </chakra.a> */}
 
-            <Avatar
-              size="sm"
-              name="Dan Abrahmov"
-              src="https://bit.ly/dan-abramov"
-            />
+            <Menu>
+              <MenuButton>
+                <Avatar name="Prasannaa" src="https://bit.ly/broken-link" />
+              </MenuButton>
+              <MenuList>
+                <MenuItem
+                onClick={()=>{
+                  window.sessionStorage.removeItem("token");
+                  history.push("/")
+                }}
+                >Logout</MenuItem>
+              </MenuList>
+            </Menu>
           </HStack>
         </Flex>
       </chakra.header>
@@ -188,10 +197,20 @@ export default function App() {
             font-size="x-large"
             font-weight="400"
           >
-            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+            <Tab
+              py={4}
+              mr={8}
+              _focus={{ boxShadow: "none" }}
+              onClick={() => history.push("rent")}
+            >
               Rent
             </Tab>
-            <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
+            <Tab
+              py={4}
+              mr={8}
+              _focus={{ boxShadow: "none" }}
+              onClick={() => history.push("buy")}
+            >
               Hire
             </Tab>
             <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
@@ -200,6 +219,7 @@ export default function App() {
             <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
               Sell
             </Tab>
+
             <Tab py={4} mr={8} _focus={{ boxShadow: "none" }}>
               <Menu>
                 <MenuButton as={Button}>More</MenuButton>
@@ -207,11 +227,25 @@ export default function App() {
                   <MenuItem minH="48px">About Us</MenuItem>
                   <MenuItem minH="40px">FAQ</MenuItem>
                   <MenuItem minH="40px">How Agventure Works!</MenuItem>
+                  <MenuItem
+                    minH="40px"
+                    onClick={() => history.push("bookingPlaced")}
+                  >
+                    Booking Placed
+                  </MenuItem>
+                  <MenuItem
+                    minH="40px"
+                    onClick={() => history.push("bookingPlaced")}
+                  >
+                    Booking Status
+                  </MenuItem>
+                  <MenuItem minH="40px" onClick={() => history.push("")}>
+                    Inbox
+                  </MenuItem>
                 </MenuList>
               </Menu>
             </Tab>
           </TabList>
-
         </Tabs>
         <Spacer />
         <HStack spacing={3} alignItems="center">

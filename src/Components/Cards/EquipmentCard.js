@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {
     Badge,
     Button,
@@ -9,14 +10,31 @@ import {
     Stack,
     Text,
     useColorModeValue,
+    Input
   } from '@chakra-ui/react';
   import "./card.css"
   import { Icon } from '@chakra-ui/react'
 import { MdSettings } from 'react-icons/md'
 import { BiBookmark } from "react-icons/bi";
 import moment from 'moment';
-  
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
+
   export default function EquipmentCard(props) {
+    const toast = useToast()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+   const [name, setName] = useState("");
+   const [startDate, setStartDate] = useState("");
+   const [endDate, setEndDate] = useState("");
     return (
       <Flex mt={5} mr={5}  className="card"
     
@@ -110,6 +128,7 @@ import moment from 'moment';
                 Message
               </Button>
               <Button
+               onClick={onOpen}
                 flex={1}
                 fontSize={'sm'}
                 rounded={'full'}
@@ -126,6 +145,73 @@ import moment from 'moment';
                 }}>
                 Buy
               </Button>
+              <Modal isOpen={isOpen} onClose={onClose}>
+  <ModalOverlay />
+  <ModalContent>
+    <ModalHeader textAlign={"center"}>Place your Order</ModalHeader>
+    <ModalCloseButton />
+    <ModalBody>
+      <Text fontSize={25}>Start Date</Text>
+      <Input
+        placeholder="Basic usage"
+        type="date"
+        onChange={(e) => {
+          setStartDate(e.target.value);
+        }}
+      />
+
+      <Text fontSize={25}>End Date</Text>
+      <Input
+        placeholder="Basic usage"
+        type="date"
+        onChange={(e) => {
+          setEndDate(e.target.value);
+        }}
+      />
+      <Text fontSize={25}>Price</Text>
+      <Input
+        id="price"
+        placeholder="Price"
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+      />
+
+      {/* <Text fontSize={25}>
+        Total Price = {parseInt(name) * (endDate - startDate)}
+      </Text> */}
+    </ModalBody>
+
+    <ModalFooter>
+      <Button colorScheme="blue" mr={3} onClick={onClose}>
+        Close
+      </Button>
+      <Button
+        variant="ghost"
+        type="submit"
+        // onClick={() => {
+        //   console.log({
+        //     price: name,
+        //     startDate,
+        //     endDate,
+        //   });
+        // }}
+        onClick={() =>
+          toast({
+            title: 'Booking Requested!',
+            description: "Your offer has been Received",
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+          })
+        }
+      >
+        Book Now
+      </Button>
+    </ModalFooter>
+  </ModalContent>
+</Modal>
+
             </Stack>
           </Stack>
         </Stack>

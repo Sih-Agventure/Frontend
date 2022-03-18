@@ -1,9 +1,31 @@
-
+import {
+  useParams,
+} from "react-router-dom";
+import React from "react";
+import {
+  Badge,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Stack,
+  Text,
+  useColorModeValue,
+  Tag,
+TagLabel,
+TagLeftIcon,
+TagRightIcon,
+TagCloseButton,
+} from '@chakra-ui/react';
+import BookingReceivedTable from "../../Components/Tables/BookingReceivedTable"
 export default function BookingPlaced() {
-
+  let { id } = useParams();
+  console.log(id)
   return (
-    <Center>
-      <Flex mt={5} mr={5}>
+      <Center>
+      <Flex mt={5} mr={5} flexDir={"column"}>
         <Stack
         
           borderWidth="1px"
@@ -45,7 +67,7 @@ export default function BookingPlaced() {
 
             <Flex justifyContent={"space-between"}>
             <Text  fontWeight={600} fontSize={'15'}>
-              <b>ID :  </b> 9137772979
+              <b>ID :  </b> {id}
             </Text>
             <Tag
       borderRadius='full'
@@ -55,7 +77,7 @@ export default function BookingPlaced() {
     >
       <TagLabel  >1 offer</TagLabel>
     </Tag>
-            </Flex>             
+           </Flex>             
 
             <Text  fontWeight={600} fontSize={'15'}>
                <b>Offer Price : </b>₹ 2,000 / hr
@@ -117,7 +139,9 @@ export default function BookingPlaced() {
             </Stack>
           </Stack>
         </Stack>
+        <BookingReceivedTable/>
       </Flex>
+      
       </Center>
   );
 }

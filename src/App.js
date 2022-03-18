@@ -29,7 +29,7 @@ function App() {
         <Route path="/rent" exact component={Rent} />
         <Route path="/buy" exact component={Buy} />
       <Route path="/equipview" exact component={View} /> 
-      <Route path="/Equipconf/:id" exact component={BookingReceived} />
+      <Route path="/Equipconf/:id" exact component={BookingPlaced}  />
       <Route path="/Equipconf" exact component={confirm} />
         <Route path="/receivedOrders" exact component={receivedOrders} /> 
         <Route path="/bookingplaced" exact component={BookingPlaced} /> 

@@ -15,6 +15,7 @@ import {
   TagRightIcon,
   TagCloseButton,
   } from '@chakra-ui/react';
+  import BookingReceivedTable from "../Tables/BookingReceivedTable"
 
   import useCollapse from 'react-collapsed';
 
@@ -133,8 +134,8 @@ import {
                 Delete Order
               </Button>
             </Stack>
-          </Stack>
-        </Stack>
+          </Stack>  
+        </Stack>  
       </Flex>
       </Center>
     );

@@ -178,7 +178,7 @@ import moment from 'moment';
       commodo consequat.
     </AccordionPanel>
   </AccordionItem>
-</Accordion>
+</Accordion>    
     </AccordionPanel>
   </AccordionItem>
 

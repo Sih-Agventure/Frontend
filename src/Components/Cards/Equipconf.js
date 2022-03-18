@@ -56,7 +56,7 @@ import {
 
             <Flex justifyContent={"space-between"}>
             <Heading  color={'blue.400'} fontWeight={"bold"} fontSize={'30'} fontFamily={'body '} >
-               Tractor
+            {props.props.equipment_name}
             </Heading>
             <Heading  mr={5} mt={2} fontWeight={"light"} fontSize={'30'} fontFamily={'body '} >
             ₹ 9877
@@ -68,7 +68,7 @@ import {
 
             <Flex justifyContent={"space-between"}>
             <Text  fontWeight={600} fontSize={'15'}>
-              <b>ID :  </b> 9137772979
+              <b>ID :  </b> {props.props.equipment_id}
             </Text>
             <Tag
       borderRadius='full'
@@ -76,25 +76,25 @@ import {
       colorScheme='green'
       mr={4}
     >
-      <TagLabel  >1 offer</TagLabel>
+      <TagLabel  >{props.props.offers.length} {props.props.offers.length > 1 ? "offers" :"offer" }</TagLabel>
     </Tag>
             </Flex>             
 
             <Text  fontWeight={600} fontSize={'15'}>
-               <b>Offer Price : </b>₹ 2,000 / hr
+               <b>Offer Price : </b>₹ 2,000 / {props.props.unit}
             </Text>
 
             <Text fontWeight={600} fontSize={'15'}
               
               color={useColorModeValue('gray.700', 'gray.400')}
-              ><b>Start Date :</b> 14/03/2021
+              ><b>Start Date :</b> {props.props.original_start_date}
             </Text>
             <Text fontWeight={600} fontSize={'15'}
               
               color={useColorModeValue('gray.700', 'gray.400')}
               >
               
-              <b>End Date :</b> 17/03/2022
+              <b>End Date :</b> {props.props.original_end_date}
             </Text>
 
             <Text fontWeight={600} fontSize={'15'}

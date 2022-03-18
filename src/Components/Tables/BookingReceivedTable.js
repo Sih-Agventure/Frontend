@@ -9,9 +9,11 @@ import 'primereact/resources/primereact.css';
 // import 'primeflex/primeflex.css';
 
 
-const BookingReceivedTable = () => {
-    const [products, setProducts] = useState([])
-
+const BookingReceivedTable = (props) => {
+    console.log(props.props)
+    const [products, setProducts] = useState(props.props)
+    
+    // setProducts(props.props)
     // useEffect(() => {
     //     productService.getProductsSmall().then(data => setProducts(data));
     // }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -42,18 +44,18 @@ const BookingReceivedTable = () => {
             <Button icon="pi pi-refresh" />
         </div>
     );
-    const footer = `In total there are ${products ? products.length : 0} products.`;
+    const footer = `In total there are ${products ? products.length : 0} Offers.`;
 
     return (
         <div className="datatable-templating-demo">
             <div className="card">
                 <DataTable value={products} header={header} footer={footer} responsiveLayout="scroll">
-                    <Column field="name" header="Name"></Column>
-                    <Column header="Image" body={imageBodyTemplate}></Column>
+                    <Column field="buyer_id" header="Name"></Column>
+                    {/* <Column header="Image" body={imageBodyTemplate}></Column>
                     <Column field="price" header="Price" body={priceBodyTemplate}></Column>
                     <Column field="category" header="Category"></Column>
                     <Column field="rating" header="Reviews" body={ratingBodyTemplate}></Column>
-                    <Column header="Status" body={statusBodyTemplate}></Column>
+                    <Column header="Status" body={statusBodyTemplate}></Column> */}
                 </DataTable>
             </div>
         </div>

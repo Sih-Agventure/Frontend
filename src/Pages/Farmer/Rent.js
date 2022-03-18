@@ -66,10 +66,17 @@ export const Rent = () => {
   const onSubmit = async(values) => {
       const user = jwt_decode(window.sessionStorage.getItem("token"))
       values.user_id = user.id
-    // console.log(values)
       const res = await postEquipment(values)
+      toast({
+        title: 'Product Listed!!',
+        description: "Your Product have been Listed.Keep on checking your inbox & Order Received",
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      })
+      history.push("/") 
       // window.alert(JSON.stringify(values, null, 2));
-      nextStep();
+      // nextStep();
   };
 
   const initialValues = {
@@ -201,18 +208,7 @@ export const Rent = () => {
                 Reset
               </ResetButton>
               <SubmitButton w="130px" 
-              onClick={() =>
-                {
-                  toast({
-                  title: 'Product Listed!!',
-                  description: "Your Product have been Listed.Keep on checking your inbox & Order Received",
-                  status: 'success',
-                  duration: 4000,
-                  isClosable: true,
-                })
-                history.push("/")  
-              }            
-              }
+              
               >Submit</SubmitButton>
             </ButtonGroup>
           </Box>

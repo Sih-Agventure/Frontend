@@ -1,3 +1,4 @@
+import {useEffect,useState} from "react"
 import {
   useParams,
 } from "react-router-dom";
@@ -19,9 +20,15 @@ TagLeftIcon,
 TagRightIcon,
 TagCloseButton,
 } from '@chakra-ui/react';
+import {getEquipmentData} from "../../redux/api/User/user"
 import BookingReceivedTable from "../../Components/Tables/BookingReceivedTable"
 export default function BookingPlaced() {
   let { id } = useParams();
+  const[data,setData] = useState([])
+  useEffect(async() => {
+    const res = await getEquipmentData(id)
+    setData(res.data.offers[0])
+  }, []);
   console.log(id)
   return (
       <Center>
@@ -110,15 +117,7 @@ export default function BookingPlaced() {
               padding={2}
               justifyContent={'space-between'}
               alignItems={'center'}>
-              <Button
-                flex={1}
-                fontSize={'18'}
-                rounded={'full'}
-                _focus={{
-                  bg: 'gray.200',
-                }}>
-                View Offers
-              </Button>
+              
               <Button
                 flex={1}
                 fontSize={'18'}
@@ -139,7 +138,7 @@ export default function BookingPlaced() {
             </Stack>
           </Stack>
         </Stack>
-        <BookingReceivedTable/>
+        {data.offers && <BookingReceivedTable props={data.offers}/>}
       </Flex>
       
       </Center>

@@ -9,11 +9,25 @@ import { Flex, Spacer, Heading, Text } from "@chakra-ui/react";
 import SearchField from "react-search-field";
 import ReactPlayer from "react-player";
 import { useHistory } from "react-router-dom";
+import { Image, Box } from "@chakra-ui/react";
+import logo from "./hero.png";
+import leaf from "./leaf.png";
 
 function Home() {
   let history = useHistory();
   return (
     <>
+      <div class="center">
+        <div class="animateMe" data-animation="fadeInUpBig"></div>
+        <div class="animateMe" data-animation="fadeInLeft"></div>
+        <div class="animateMe" data-animation="fadeInRight"></div>
+        <div class="animateMe" data-animation="rollIn"></div>
+        <div class="animateMe" data-animation="bounceIn"></div>
+      </div>
+
+
+      <img className="farmer_eq" src={logo} />
+
       <Flex flexDir="row">
         <Flex width="60%" flexDir="column" mt="5%">
           <Text
@@ -55,8 +69,10 @@ function Home() {
                   />
                 </TabPanel>
                 <TabPanel>
-                  <Button colorScheme="teal" size="md" 
-                  onClick={() => history.push("Signup")}
+                  <Button
+                    colorScheme="teal"
+                    size="md"
+                    onClick={() => history.push("Signup")}
                   >
                     Create a Free Account
                   </Button>
@@ -75,14 +91,14 @@ function Home() {
             </Tabs>
           </Flex>
         </Flex>
-        <Flex>
+        {/* <Flex>
           <ReactPlayer
             style={{ marginTop: "10%" }}
             url="https://www.youtube.com/watch?v=-uSmVB1czQQ"
             width="600px"
             height="500px"
           />
-        </Flex>
+        </Flex> */}
       </Flex>
 
       <Flex flexDir="column" mt="15%" mb="15%">
@@ -111,6 +127,7 @@ function Home() {
           landowners.Connecting farmers with more land and farm financing
           options.
         </Text>
+        <img className="leaf" src={leaf} />
         <Flex flexDir="row" mr="5">
           <Cards />
           <Cards />
@@ -120,7 +137,9 @@ function Home() {
       </Flex>
 
       <Flex flexDir="column" mt="1%">
-        <Heading fontSize={50} textAlign="center">Recently Listed Equipments For Sale</Heading>
+        <Heading fontSize={50} textAlign="center">
+          Recently Listed Equipments For Sale
+        </Heading>
         <Flex flexDir="row" mr="5" mb="10%">
           <Cpwe />
           <Cpwe />

@@ -37,23 +37,23 @@
   }
 }
 
-.css-1af6o5{
+.css-1af6o5 {
   outline: none;
 }
 
-.foot{
+.foot {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
   background-color: rgb(216, 218, 214);
-  
 }
 
-.foot-links{  
+.foot-links {
   width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
 }
+

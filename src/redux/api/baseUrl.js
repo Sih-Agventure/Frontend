@@ -4,7 +4,7 @@ import axios from "axios";
 // import { useSelector } from "react-redux";
 
 // dotenv.config();
-const base = "http://localhost:5000/";
+const base = "http:///127.0.0.1:5000/";
 
 const baseAxios = axios.create({
   baseURL: base,

@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { StepsStyleConfig as Steps } from 'chakra-ui-steps';
+import { StepsStyleConfig as Steps } from "chakra-ui-steps";
+import $ from "jquery";
+
+
 
 const colors = {
   brand: {
@@ -17,17 +20,21 @@ const colors = {
     600: "#3c4178",
     700: "#2a2f57",
     800: "#181c37",
-    900: "#080819"
-  }
+    900: "#080819",
+  },
 };
 const config = {
   initialColorMode: "light",
-  useSystemColorMode: false
+  useSystemColorMode: false,
 };
 
-const theme = extendTheme({ colors, config, components: {
-  Steps,
-},});
+const theme = extendTheme({
+  colors,
+  config,
+  components: {
+    Steps,
+  },
+});
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -36,6 +43,38 @@ ReactDOM.render(
   </ChakraProvider>,
   rootElement
 );
+
+// function scrollWaypointInit(items, trigger) {
+//   items.each(function () {
+//     var element = $(this),
+//       osAnimationClass = element.data("animation"),
+//       osAnimationDelay = element.attr("data-animation-delay");
+
+//     element.css({
+//       "-webkit-animation-delay": osAnimationDelay,
+//       "-moz-animation-delay": osAnimationDelay,
+//       "animation-delay": osAnimationDelay,
+//     });
+
+//     var trigger = trigger ? trigger : element;
+
+//     trigger.waypoint(
+//       function () {
+//         element.addClass("animated").addClass(osAnimationClass);
+//       },
+//       {
+//         // triggerOnce: true,
+//         offset: "80%",
+//       }
+//     );
+//   });
+// }
+
+// //Call the init
+
+// $(document).ready(function () {
+//   scrollWaypointInit($(".animateMe"));
+// });
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

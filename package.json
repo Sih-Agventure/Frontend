@@ -17,6 +17,7 @@
     "formik": "^2.2.9",
     "formik-chakra-ui": "^1.6.0",
     "framer-motion": "^6.2.8",
+    "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.7.1",
     "lorem-ipsum": "^2.0.4",

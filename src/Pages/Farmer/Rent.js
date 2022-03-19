@@ -141,9 +141,14 @@ export const Rent = () => {
               name="equipment_name"
               selectProps={{ placeholder: "Select Equipment Name" }}
             >
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option value="option1">Tractor</option>
+              <option value="option2">Axe</option>
+              <option value="option3">Sprinkler</option>
+              <option value="option4">Spade</option>
+              <option value="option5">Shears</option>
+              <option value="option6">Fork</option>
+              <option value="option7">WheelBarrow</option>
+
             </SelectControl>
             {/* ENter Specification Checkbox */}
             {/* <InputControl name="Specification" label="Enter Specification" /> */}

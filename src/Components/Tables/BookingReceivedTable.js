@@ -47,9 +47,9 @@ const BookingReceivedTable = (props) => {
     const footer = `In total there are ${products ? products.length : 0} Offers.`;
 
     return (
-        <div className="datatable-templating-demo">
+        <div className="datatable-templating-demo" style={{marginTop:"20px"}}>
             <div className="card">
-                <DataTable value={products} header={header} footer={footer} responsiveLayout="scroll">
+                <DataTable value={products}  footer={footer} responsiveLayout="scroll">
                     <Column field="buyer_id" header="Name"></Column>
                     {/* <Column header="Image" body={imageBodyTemplate}></Column>
                     <Column field="price" header="Price" body={priceBodyTemplate}></Column>

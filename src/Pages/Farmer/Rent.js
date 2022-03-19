@@ -141,13 +141,13 @@ export const Rent = () => {
               name="equipment_name"
               selectProps={{ placeholder: "Select Equipment Name" }}
             >
-              <option value="option1">Tractor</option>
-              <option value="option2">Axe</option>
-              <option value="option3">Sprinkler</option>
-              <option value="option4">Spade</option>
-              <option value="option5">Shears</option>
-              <option value="option6">Fork</option>
-              <option value="option7">WheelBarrow</option>
+              <option value="Tractor">Trac0tor</option>
+              <option value="Axe">Axe</option>
+              <option value="Sprinkler">Sprinkler</option>
+              <option value="Spade">Spade</option>
+              <option value="Shears">Shears</option>
+              <option value="Fork">Fork</option>
+              <option value="WheelBarrow">WheelBarrow</option>
 
             </SelectControl>
             {/* ENter Specification Checkbox */}
@@ -232,19 +232,8 @@ export const Rent = () => {
               </ResetButton>
               <SubmitButton
                 w="100px"
-                onClick={() =>
-                  {
-                    toast({
-                    title: "Product Listed!!",
-                    description:
-                      "Your Product have been Listed.Keep on checking your inbox & Order Received",
-                    status: "success",
-                    duration: 4000,
-                    isClosable: true,
-                  })
-                  history.push("/")
-                }
-              }
+                
+              
               >
                 Submit
               </SubmitButton>

@@ -114,7 +114,7 @@ export default function EquipmentCard(props) {
               </Badge> */}
             </Stack>
             <Text fontWeight={800} fontSize={'xl'} >
-               ₹ 2,000 / {props.props.unit}
+               ₹ 2,000 / {props.props.unit ==="daily" ? "day":"hr"}
             </Text>
             <Stack
               width={'100%'}

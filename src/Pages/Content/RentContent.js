@@ -13,7 +13,7 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
-import Carousel from 'react-bootstrap/Carousel'
+// import Carousel from 'react-bootstrap/Carousel'
 function RentContent() {
   return ( 
         <div>

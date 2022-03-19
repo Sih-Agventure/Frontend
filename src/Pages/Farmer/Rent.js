@@ -62,12 +62,20 @@ export const Rent = () => {
   });
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const onSubmit = async (values) => {
-    const user = jwt_decode(window.sessionStorage.getItem("token"));
-    values.id = user.id;
-    const res = await postEquipment(values);
-    // window.alert(JSON.stringify(values, null, 2));
-    nextStep();
+  const onSubmit = async(values) => {
+      const user = jwt_decode(window.sessionStorage.getItem("token"))
+      values.user_id = user.id
+      const res = await postEquipment(values)
+      toast({
+        title: 'Product Listed!!',
+        description: "Your Product have been Listed.Keep on checking your inbox & Order Received",
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      })
+      history.push("/") 
+      // window.alert(JSON.stringify(values, null, 2));
+      // nextStep();
   };
 
   const initialValues = {
@@ -115,6 +123,7 @@ export const Rent = () => {
         validationSchema={validationSchema}
       >
         {({ handleSubmit, values, errors }) => (
+          <>
           <Box
             borderWidth="1px"
             rounded="lg"
@@ -126,48 +135,58 @@ export const Rent = () => {
             onSubmit={handleSubmit}
             boxShadow="3px 5px #dde9e0"
           >
-            <Flex flexDir="row">
-              <SelectControl
-                width="100%"
-                style={{ marginTop: "10px" }}
-                label="Equipement Name"
-                name="equipment_name"
-                selectProps={{ placeholder: "Select Equipment Name" }}
-              >
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </SelectControl>
-              {/* ENter Specification Checkbox */}
-              {/* <InputControl name="Specification" label="Enter Specification" /> */}
-              <CheckboxContainer
-                marginLeft={200}
-                name="specification"
-                label="Enter Specification"
-                style={{ marginTop: "10px" }}
-              >
-                <CheckboxControl name="toppings" value="chicken">
-                  Size
-                </CheckboxControl>
-                <CheckboxControl name="toppings" value="ham">
-                  Capacity
-                </CheckboxControl>
-                <CheckboxControl name="toppings" value="mushrooms">
-                  Power
-                </CheckboxControl>
-                <CheckboxControl name="toppings" value="cheese">
-                  Other
-                </CheckboxControl>
-              </CheckboxContainer>
-            </Flex>
-            <Flex flexDir="row">
-              <InputControl
-                width="60%"
-                name=" hiring_cost"
-                label="Enter Hiring Cost"
-                style={{ marginTop: "10px" }}
-              />
-              {/* <InputControl name="Quantity" label="Aadhar Number" /> */}
+            <SelectControl
+              style={{ marginTop: "10px" }}
+              label="Equipement Name"
+              name="equipment_name"
+              selectProps={{ placeholder: "Select Equipment Name" }}
+            >
+              <option value="option1">Tractor</option>
+              <option value="option2">Axe</option>
+              <option value="option3">Sprinkler</option>
+              <option value="option4">Spade</option>
+              <option value="option5">Shears</option>
+              <option value="option6">Fork</option>
+              <option value="option7">WheelBarrow</option>
+
+            </SelectControl>
+            {/* ENter Specification Checkbox */}
+            {/* <InputControl name="Specification" label="Enter Specification" /> */}
+            <CheckboxContainer
+              name="specification"
+              label="Enter Specification"
+              style={{ marginTop: "10px" }}
+            >
+              <CheckboxControl name="toppings" value="chicken">
+                Size
+              </CheckboxControl>
+              <CheckboxControl name="toppings" value="ham">
+                Capacity
+              </CheckboxControl>
+              <CheckboxControl name="toppings" value="mushrooms">
+                Power
+              </CheckboxControl>
+              <CheckboxControl name="toppings" value="cheese">
+                Other
+              </CheckboxControl>
+            </CheckboxContainer>
+            <InputControl
+              name=" hiring_cost"
+              label="Enter Hiring Cost"
+              style={{ marginTop: "10px" }}
+            />
+            {/* <InputControl name="Quantity" label="Aadhar Number" /> */}
+
+            {/* Unit dropdown hourly/daily */}
+            <SelectControl
+              style={{ marginTop: "10px" }}
+              label="Enter Unit"
+              name="unit"
+              selectProps={{ placeholder: "Select Unit" }}
+            >
+              <option value="hourly">Hourly</option>
+              <option value="daily">Daily</option>
+            </SelectControl>
 
               {/* Unit dropdown hourly/daily */}
               <SelectControl
@@ -181,7 +200,7 @@ export const Rent = () => {
                 <option value="hourly">Hourly</option>
                 <option value="daily">Daily</option>
               </SelectControl>
-            </Flex>
+            {/* </Flex> */}
             <Flex flexDir="row">
               <InputControl
                 width="60%"
@@ -231,6 +250,7 @@ export const Rent = () => {
               </SubmitButton>
             </ButtonGroup>
           </Box>
+          </>
         )}
       </Formik>
     </Flex>

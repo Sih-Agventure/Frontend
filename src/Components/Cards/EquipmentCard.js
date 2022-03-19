@@ -39,6 +39,7 @@ export default function EquipmentCard(props) {
    const [startDate, setStartDate] = useState("");
    const [endDate, setEndDate] = useState("");
    let history = useHistory();
+   console.log(props)
     return (
       <Flex mt={5} mr={5}  className="card"
     
@@ -209,10 +210,10 @@ export default function EquipmentCard(props) {
               duration: 4000,
               isClosable: true,
             });
-        const user = jwt_decode(window.sessionStorage.getItem("token"))
+        const user = jwt_decode(window.sessionStorage.getItem("token"));
               
-              const res = await uploadOffer({equipment_id:props.props.equipment_id,buyer_id:user.id,price:name,start_date:startDate,end_date:endDate})
-              history.push("/")
+              const res = await uploadOffer({equipment_id:props.props.equipment_id,buyer_id:user.id,price:name,start_date:startDate,end_date:endDate,equipment_name:props.props.equipment_name,unit:props.props.unit,original_start_date:props.props.start_date,original_end_date:props.props.end_date})
+              // history.push("/")
           }
 
         }

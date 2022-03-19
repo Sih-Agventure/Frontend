@@ -214,7 +214,7 @@ export default function App() {
               py={4}
               mr={8}
               _focus={{ boxShadow: "none" }}
-              onClick={() => history.push("rent")}
+              onClick={() => history.push("/rent")}
             >
               Rent
             </Tab>
@@ -222,7 +222,7 @@ export default function App() {
               py={4}
               mr={8}
               _focus={{ boxShadow: "none" }}
-              onClick={() => history.push("buy")}
+              onClick={() => history.push("/buy")}
             >
               Hire
             </Tab>
@@ -237,7 +237,10 @@ export default function App() {
               <Menu>
                 <MenuButton as={Button}>More</MenuButton>
                 <MenuList>
-                  <MenuItem minH="48px" onClick={() => history.push("aboutUs")}>
+                <MenuItem
+                    minH="40px"
+                    onClick={() => history.push("/aboutUs")}
+                  >
                     About Us
                   </MenuItem>
                   <MenuItem minH="40px" onClick={() => history.push("faq")}>

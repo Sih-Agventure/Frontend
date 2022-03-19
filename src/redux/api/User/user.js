@@ -18,4 +18,7 @@ export const uploadOffer = async (data) =>
 axios.post("/api/offers/received",data);
 
 export const getEquipmentOffers = async (id) =>    
-axios.get(`/api/offers/received/?id=${id}`);
+axios.get(`/api/offers/received/${id}`);
+
+export const getEquipmentData = async (id) =>    
+axios.get(`/api/offers/equipment/${id}`);

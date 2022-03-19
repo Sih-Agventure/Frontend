@@ -79,8 +79,9 @@ export default function Signin() {
    
       const res = await login(values)
       sessionStorage.setItem("token", res.data.token);
-      history.push("/")
-      window.alert(JSON.stringify(values, null, 2));
+      window.location = "/";
+      // history.push("/")
+      // window.alert(JSON.stringify(values, null, 2));
     //  nextStep();
 
   };

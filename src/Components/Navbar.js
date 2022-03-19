@@ -18,6 +18,7 @@ import {
   Input,
   Avatar,
   Tabs,
+  Tooltip,
   TabList,
   Tab,
   TabPanels,
@@ -94,9 +95,7 @@ export default function App() {
                 <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
                   Log in
                 </Button>
-                <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-                  Dashboardvdff
-                </Button>
+                
                 <Button
                   w="full"
                   variant="solid"
@@ -137,9 +136,7 @@ export default function App() {
               >
                 Login
               </Button>
-              <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
-                Dashboard
-              </Button>
+             
               <Button
                 variant="solid"
                 colorScheme="brand"
@@ -172,13 +169,14 @@ export default function App() {
 
             <Menu>
               <MenuButton>
-                <Avatar name="Prasannaa" src="https://bit.ly/broken-link" />
+                <Avatar name={window.sessionStorage.getItem('token') ? "Prasannaa":""}  />
               </MenuButton>
               <MenuList>
                 <MenuItem
                   onClick={() => {
                     window.sessionStorage.removeItem("token");
-                    history.push("/");
+                    window.location = "/";
+                    
                   }}
                 >
                   Logout
@@ -247,19 +245,25 @@ export default function App() {
                     FAQ
                   </MenuItem>
                   <MenuItem minH="40px">How Agventure Works!</MenuItem>
+                  
                   <MenuItem
                     minH="40px"
                     onClick={() => history.push("bookingPlaced")}
+                    isDisabled={!window.sessionStorage.getItem('token')}
                   >
                     Booking Placed
                   </MenuItem>
+                 
                   <MenuItem
                     minH="40px"
                     onClick={() => history.push("bookingPlaced")}
+                    isDisabled={!window.sessionStorage.getItem('token')}
                   >
                     Booking Status
                   </MenuItem>
-                  <MenuItem minH="40px" onClick={() => history.push("")}>
+                  <MenuItem minH="40px" 
+                   isDisabled={!window.sessionStorage.getItem('token')}
+                  onClick={() => history.push("")}>
                     Inbox
                   </MenuItem>
                 </MenuList>

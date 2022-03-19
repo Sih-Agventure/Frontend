@@ -79,7 +79,7 @@ export default function Signin() {
    
       const res = await login(values)
       sessionStorage.setItem("token", res.data.token);
-      history.push("/rent")
+      history.push("/")
       window.alert(JSON.stringify(values, null, 2));
     //  nextStep();
 
@@ -129,7 +129,7 @@ export default function Signin() {
                 <ButtonGroup d="flex" justifyContent={"flex-end"} mt="7">
                 {/* <ResetButton mr="10" w="130px">Reset</ResetButton> */}
                 <ResetButton mr="2" >Reset</ResetButton>
-                  <SubmitButton >Login</SubmitButton>
+                  <SubmitButton>Login</SubmitButton>
                 </ButtonGroup>
                 <Text align={'center'} mt={"3"}>
                 New to our world? <Link color={'blue.400'} href="http://localhost:3000/signup">Register</Link>

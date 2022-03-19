@@ -10,23 +10,20 @@ import SearchField from "react-search-field";
 import ReactPlayer from "react-player";
 import { useHistory } from "react-router-dom";
 import { Image, Box } from "@chakra-ui/react";
-import logo from "./hero.png";
-import leaf from "./leaf.png";
+import hero from "../Assets/hero.png";
+import leaf from "../Assets/leaf.png";
+import tractor from "../Assets/tractor_home.jpeg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Home() {
   let history = useHistory();
+  AOS.init({
+    duration: 2500,
+  });
   return (
     <>
-      <div class="center">
-        <div class="animateMe" data-animation="fadeInUpBig"></div>
-        <div class="animateMe" data-animation="fadeInLeft"></div>
-        <div class="animateMe" data-animation="fadeInRight"></div>
-        <div class="animateMe" data-animation="rollIn"></div>
-        <div class="animateMe" data-animation="bounceIn"></div>
-      </div>
-
-
-      <img className="farmer_eq" src={logo} />
+      <img className="farmer_eq" src={hero} />
 
       <Flex flexDir="row">
         <Flex width="60%" flexDir="column" mt="5%">
@@ -39,7 +36,7 @@ function Home() {
             fontWeight="semibold"
             textAlign="center"
           >
-            Farm Real Estate Platform For Farmers and Landowners
+            AGVENTURE
           </Text>
           <Text
             fontSize="3xl"
@@ -47,9 +44,10 @@ function Home() {
             lineHeight="1"
             letter-spacing="0.5"
             textAlign="center"
-            mt="5%"
+            mt="3%"
+            overflow={"none"}
           >
-            Farm Real Estate Platform For Farmers and Landowners
+            Equipment Rental Service for Farmers.
           </Text>
           <Flex>
             <Tabs isFitted w="100%" mt="5%" mx="10%">
@@ -64,7 +62,7 @@ function Home() {
                   <SearchField
                     placeholder="Enter land, address or pincode"
                     // onChange={onChange}
-                    searchText="Enter land, address or pincode"
+
                     classNames="test-class"
                   />
                 </TabPanel>
@@ -100,50 +98,59 @@ function Home() {
           />
         </Flex> */}
       </Flex>
+      <img className="leaf" src={leaf} />
 
-      <Flex flexDir="column" mt="15%" mb="15%">
+      <Flex flexDir="column" mt="15%" mb="1%">
         <Text
           fontSize="6xl"
-          mt="2"
+          mt="5%"
           noOfLines={3}
           lineHeight="1"
           letter-spacing="0.5"
           fontWeight="semibold"
           textAlign="center"
+          overflow={"none"}
         >
           Agventure Made Simple
         </Text>
         <Text
           fontSize="3xl"
-          noOfLines={3}
           letter-spacing="1"
           fontWeight="light"
           textAlign="center"
-          w="50%"
+          w="70%"
           m="auto"
           mt="7"
         >
-          Simplifying farm real estate and farm management for
-          landowners.Connecting farmers with more land and farm financing
-          options.
-        </Text>
-        <img className="leaf" src={leaf} />
-        <Flex flexDir="row" mr="5">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-        </Flex>
-      </Flex>
+          <p>
+            A very interesting query. In India, the utilisation rate of an
+            average farm tractor is very low maybe even in the range of 20 - 30%
+            for various reasons, considering that it can be run easily in three
+            six-hour periods over a 24 hour period. Now, that is a lot of
+            underutilised capacity. So, the main question is, why are people
+            still buying new Equipment and adding to the existing underutilised
+            capacity? Is it because of some Government subsidy that has the
+            possibility of being shared equally by various people including the
+            beneficiary? Time to do an Ola or Uber on tractor & other Equipment
+            used in the villages, it seems. The existing government machinery
+            will not do it for it is not in their “private” interest. Some small
+            units are helping this sharing but on a very small scale only ಥ_ಥ.
+          </p>
 
-      <Flex flexDir="column" mt="1%">
+          <Heading fontWeight={400} style={{ color: "#32CD32" }} mt="1%">
+            Dont Worry. Agventure have Got Your Back
+          </Heading>
+        </Text>
+
+        {/*    */}
+      </Flex>
+      <img className="tractor" src={tractor} data-aos="forward" />
+      <Flex flexDir="column" mt="1%" data-aos="zoom">
         <Heading fontSize={50} textAlign="center">
           Recently Listed Equipments For Sale
         </Heading>
-        <Flex flexDir="row" mr="5" mb="10%">
-          <Cpwe />
-          <Cpwe />
-          <Cpwe />
+        <Flex flexDir="row" mt="1%" mr="0 " mb="1%">
+          <Cards />
         </Flex>
       </Flex>
     </>

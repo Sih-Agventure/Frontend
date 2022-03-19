@@ -106,7 +106,8 @@ export default function Footer() {
       align="center"
     >
       <Text fontSize="sm" color="subtle">
-        &copy; {new Date().getFullYear()} Chakra UI Pro, Inc. All rights reserved.
+        &copy; {new Date().getFullYear()}
+         Agventure, Inc. All rights reserved.
       </Text>
       <ButtonGroup variant="ghost">
         <IconButton

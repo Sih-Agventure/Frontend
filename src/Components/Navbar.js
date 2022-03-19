@@ -241,15 +241,16 @@ export default function App() {
                   >
                     About Us
                   </MenuItem>
-                  <MenuItem minH="40px" onClick={() => history.push("faq")}>
+                  <MenuItem minH="40px" onClick={() => history.push("/faq")}>
                     FAQ
                   </MenuItem>
                   <MenuItem minH="40px">How Agventure Works!</MenuItem>
                   
                   <MenuItem
                     minH="40px"
-                    onClick={() => history.push("bookingPlaced")}
+                    // onClick={() => history.push("bookingPlaced")}
                     isDisabled={!window.sessionStorage.getItem('token')}
+                    onClick={() => history.push("/Equipconf")}
                   >
                     Booking Placed
                   </MenuItem>

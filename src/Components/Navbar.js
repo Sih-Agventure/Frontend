@@ -1,6 +1,7 @@
 import React from "react";
 // import { FiClipboard, FiDollarSign, FiUser } from "react-icons/fi";
 import {
+  Link,
   chakra,
   Box,
   Flex,
@@ -122,7 +123,9 @@ export default function App() {
               <Logo />
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
-            <chakra.h1 fontSize="xl">Agventure</chakra.h1>
+            <chakra.h1 fontSize="xl" onClick={() => history.push("/")}>
+              Agventure
+            </chakra.h1>
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
@@ -152,19 +155,19 @@ export default function App() {
               >
                 Videos
               </Button> */}
-              
-              <div id="google_element" style={{marginTop:"7px"}}></div>
+
+              <div id="google_element" style={{ marginTop: "7px" }}></div>
             </HStack>
-            
+
             {/* <chakra.a
               p={3}
               color={useColorModeValue("gray.800", "inherit")}
               rounded="sm"
               _hover={{ color: useColorModeValue("gray.800", "gray.600") }}
             > */}
-              {/* <IoLanguageOutline style={{ height: "25px", width: "25px" }} /> */}
-              {/* Change Language */}
-              {/* <VisuallyHidden>Notifications</VisuallyHidden>
+            {/* <IoLanguageOutline style={{ height: "25px", width: "25px" }} /> */}
+            {/* Change Language */}
+            {/* <VisuallyHidden>Notifications</VisuallyHidden>
             </chakra.a> */}
 
             <Menu>
@@ -173,11 +176,13 @@ export default function App() {
               </MenuButton>
               <MenuList>
                 <MenuItem
-                onClick={()=>{
-                  window.sessionStorage.removeItem("token");
-                  history.push("/")
-                }}
-                >Logout</MenuItem>
+                  onClick={() => {
+                    window.sessionStorage.removeItem("token");
+                    history.push("/");
+                  }}
+                >
+                  Logout
+                </MenuItem>
               </MenuList>
             </Menu>
           </HStack>
@@ -191,12 +196,20 @@ export default function App() {
         // overflowX="auto"
         overflow={"hidden"}
       >
-        <Tabs defaultIndex={1} borderBottomColor="transparent">
+        <Tabs defaultIndex={0} borderBottomColor="transparent">
           <TabList
             font-family="sans-serif"
             font-size="x-large"
             font-weight="400"
           >
+            <Tab
+              py={4}
+              mr={8}
+              _focus={{ boxShadow: "none" }}
+              onClick={() => history.push("/")}
+            >
+              Home
+            </Tab>
             <Tab
               py={4}
               mr={8}
@@ -230,7 +243,9 @@ export default function App() {
                   >
                     About Us
                   </MenuItem>
-                  <MenuItem minH="40px">FAQ</MenuItem>
+                  <MenuItem minH="40px" onClick={() => history.push("faq")}>
+                    FAQ
+                  </MenuItem>
                   <MenuItem minH="40px">How Agventure Works!</MenuItem>
                   <MenuItem
                     minH="40px"
@@ -240,7 +255,7 @@ export default function App() {
                   </MenuItem>
                   <MenuItem
                     minH="40px"
-                    onClick={() => history.push("")}
+                    onClick={() => history.push("bookingPlaced")}
                   >
                     Booking Status
                   </MenuItem>

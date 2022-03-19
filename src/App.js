@@ -15,7 +15,9 @@ import confirm from "./Pages/Farmer/confirm";
 import BookingPlaced from "./Pages/Farmer/BookingPlaced";
 import BookingReceived from "./Pages/Farmer/BookingReceived";
 import AboutUs from "./Pages/Content/AboutUs";
-
+import HireContent from "./Pages/Content/HireContent";
+import RentContent from "./Pages/Content/RentContent";
+import FAQ from "./Pages/Support";
 // import Chat from "./Pages/Farmer/Chat";
 
 function App() {
@@ -36,6 +38,9 @@ function App() {
       <Route path="/bookingplaced" exact component={BookingPlaced} />
       <Route path="/list" exact component={List} />
       <Route path="/aboutUs" exact component={AboutUs} />
+      <Route path="/HireContent" exact component={HireContent} />
+      <Route path="/RentContent" exact component={RentContent} />
+      <Route path="/faq" exact component={FAQ} />
       <Footer />
     </Router>
   );

@@ -54,7 +54,6 @@ import { useHistory } from "react-router-dom";
 //   { label: "Submit", icon: FiDollarSign },
 // ]
 
-
 export const Rent = () => {
   const toast = useToast();
   let history = useHistory();
@@ -124,11 +123,12 @@ export const Rent = () => {
         validationSchema={validationSchema}
       >
         {({ handleSubmit, values, errors }) => (
+          <>
           <Box
             borderWidth="1px"
             rounded="lg"
             shadow="1px 1px 3px rgba(0,0,0,0.3)"
-            w="35%"
+            w="60%"
             p={6}
             m="10px auto"
             as="form"
@@ -188,18 +188,36 @@ export const Rent = () => {
               <option value="daily">Daily</option>
             </SelectControl>
 
-            <InputControl
-              style={{ marginTop: "10px" }}
-              name="start_date"
-              label="Start Date"
-              inputProps={{ type: "date" }}
-            />
-            <InputControl
-              style={{ marginTop: "10px", marginBottom: "10 px" }}
-              name="end_date"
-              label="End Date"
-              inputProps={{ type: "date" }}
-            />
+              {/* Unit dropdown hourly/daily */}
+              <SelectControl
+                marginLeft={200}
+                style={{ marginTop: "10px" }}
+                width="60%"
+                label="Enter Unit"
+                name="unit"
+                selectProps={{ placeholder: "Select Unit" }}
+              >
+                <option value="hourly">Hourly</option>
+                <option value="daily">Daily</option>
+              </SelectControl>
+            {/* </Flex> */}
+            <Flex flexDir="row">
+              <InputControl
+                width="60%"
+                style={{ marginTop: "10px" }}
+                name="start_date"
+                label="Start Date"
+                inputProps={{ type: "date" }}
+              />
+              <InputControl
+                marginLeft={200}
+                width="60%"
+                style={{ marginTop: "10px", marginBottom: "10 px" }}
+                name="end_date"
+                label="End Date"
+                inputProps={{ type: "date" }}
+              />
+            </Flex>
             <RMIUploader
               isOpen={visible}
               hideModal={hideModal}
@@ -208,15 +226,31 @@ export const Rent = () => {
               onRemove={onRemove}
               dataSources={a}
             />
-            <ButtonGroup ml="50%" mt="7">
+            <ButtonGroup ml="35%" mt="7">
               <ResetButton mr="10" w="100px">
                 Reset
               </ResetButton>
-              <SubmitButton w="130px" 
-              
-              >Submit</SubmitButton>
+              <SubmitButton
+                w="100px"
+                onClick={() =>
+                  {
+                    toast({
+                    title: "Product Listed!!",
+                    description:
+                      "Your Product have been Listed.Keep on checking your inbox & Order Received",
+                    status: "success",
+                    duration: 4000,
+                    isClosable: true,
+                  })
+                  history.push("/")
+                }
+              }
+              >
+                Submit
+              </SubmitButton>
             </ButtonGroup>
           </Box>
+          </>
         )}
       </Formik>
     </Flex>

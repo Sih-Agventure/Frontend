@@ -24,7 +24,7 @@ function RentContent() {
             height='270'
             />
 
-            <Flex width='120%' flexDir='column' justifyContent='center'>
+            <Flex width='auto' flexDir='column' justifyContent='center'>
 
             <Stack
             marginBottom={'10px'}>

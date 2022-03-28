@@ -18,6 +18,8 @@ import AboutUs from "./Pages/Content/AboutUs";
 import HireContent from "./Pages/Content/HireContent";
 import RentContent from "./Pages/Content/RentContent";
 import FAQ from "./Pages/Support";
+import Need_Help from "./Pages/Products";
+import History from "./Pages/Farmer/History";
 // import Chat from "./Pages/Farmer/Chat";
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
       <Route path="/HireContent" exact component={HireContent} />
       <Route path="/RentContent" exact component={RentContent} />
       <Route path="/faq" exact component={FAQ} />
+      <Route path="/help" exact component={Need_Help} />
+      <Route path="/History" exact component={History} />
       <Footer />
     </Router>
   );

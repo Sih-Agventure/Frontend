@@ -82,7 +82,16 @@ export const FRegistration = () => {
     EmailId:"",
   };
   const validationSchema = Yup.object({
-    email:Yup.string().email()
+    email:Yup.string().email(),
+    password:Yup.string().required().min(5, "Your password must be longer than 5 characters.")
+    .max(25)
+    .matches(/^(?=.{6,})/, "Must Contain 6 Characters")
+    
+    .matches(
+      /^(?=.*[!@#\$%\^&\*])/,
+      "Must Contain One Special Case Character"
+    )
+    .matches(/^(?=.{6,20}$)\D*\d/, "Must Contain One Number"),
     // firstName: Yup.string().required(),
     // lastName: Yup.string().required(),
     // Aadhar:"Yup.string().required()",

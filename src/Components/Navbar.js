@@ -138,10 +138,16 @@ export default function App() {
               </Button>
              
               <Button
-                variant="solid"
-                colorScheme="brand"
+                variant="ghost"
+                backgroundColor="#58CD36"
+                color="white"
                 leftIcon={<AiOutlineInbox />}
                 size="sm"
+                _hover={{
+                  backgroundColor: "white",
+                  color: "#58CD36",
+                }}
+                onClick={() => history.push("/help")}
               >
                 Need Help?
               </Button>
@@ -254,7 +260,13 @@ export default function App() {
                   >
                     Booking Placed
                   </MenuItem>
-                 
+                  <MenuItem
+                    minH="40px"
+                    onClick={() => history.push("/history")}
+                    isDisabled={!window.sessionStorage.getItem('token')}
+                  >
+                    History
+                  </MenuItem>
                   <MenuItem
                     minH="40px"
                     onClick={() => history.push("bookingPlaced")}

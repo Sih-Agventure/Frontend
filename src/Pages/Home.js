@@ -88,6 +88,15 @@ function Home() {
               </TabPanels>
             </Tabs>
           </Flex>
+          <Flex ml={10}>
+            <Heading className="quote" fontSize="50px">
+              <i>
+                <Text fontSize="50px" fontWeight="light" ml={20} mt="10%">
+                  &ldquo; If You Ate Today Thank A Farmer &#8221;
+                </Text>
+              </i>
+            </Heading>
+          </Flex>
         </Flex>
         {/* <Flex>
           <ReactPlayer

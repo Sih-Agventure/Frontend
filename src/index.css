@@ -8,6 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+div .quote {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -23,11 +26,11 @@ code {
 
 .goog-te-combo {
   width: 99%;
-  height: 41px;
+  height: 35px;
   font-family: "Roboto", sans-serif;
   /* // font-size: 11px; */
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.5px;
   font-weight: 500;
   color: #000;
   background-color: #fff;
@@ -59,31 +62,6 @@ code {
 .goog-te-gadget .goog-te-combo {
   color: black !important;
   margin: 0;
-}
-
-.chakra-stack.css-gxziyl {
-  padding-left: 0 !important;
-}
-
-.farmer_eq {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  /* max-height: 100vh; */
-  width: initial;
-}
-.leaf {
-  position: absolute;
-  left: -0.5rem;
-  top: 55rem;
-  z-index: -1;
-  max-height: 55rem;
-  max-width: 16rem;
-}
-
-.css-jg9jcq {
-  margin-left: 10% !important;
 }
 
 .chakra-stack.css-gxziyl {
@@ -246,6 +224,38 @@ header h1 {
   margin: 2% 0 0 0 !important;
 }
 
-/* .css-15rfvz2 {
-  background: none !important;
-} */
+.home {
+  height: calc(170vh - 80px);
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.home .Sopts {
+  padding-top: 40px;
+
+  display: inline-block;
+}
+.home .Sopts Button {
+  margin: 0px 30px 0px 30px;
+}
+.home .Sopts1 Button {
+  margin: 0px 30px 0px 30px;
+}
+.home .Sopts2 Button {
+  margin: 0px 30px 0px 30px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.css-roro54 {
+  margin-top: 7% !important;
+}
+
+div .quote {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.css-1m064pw{
+  width: auto!important;
+} 

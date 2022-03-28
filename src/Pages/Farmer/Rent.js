@@ -45,6 +45,7 @@ import {
   Radio,
   Stack, Text
 } from "@chakra-ui/react";
+import ImageUploader from 'react-images-upload';
 import jwt_decode from "jwt-decode";
 import { postEquipment } from "../../redux/api/User/user";
 import { useToast } from "@chakra-ui/react";
@@ -58,6 +59,8 @@ import { useHistory } from "react-router-dom";
 export const Rent = () => {
   const toast = useToast();
   let history = useHistory();
+  const [pictures, setPictures] = useState([]);
+
   const { nextStep, prevStep, reset, activeStep } = useSteps({
     initialStep: 0,
   });
@@ -65,8 +68,16 @@ export const Rent = () => {
 
   const onSubmit = async(values) => {
       const user = jwt_decode(window.sessionStorage.getItem("token"))
-      values.user_id = user.id
-      const res = await postEquipment(values)
+      const formData = new FormData();
+      console.log(values)
+      // values.user_id = user.id
+      formData.append('user_id',user.id)
+      formData.append('equipment_name',values.equipment_name)
+      formData.append('start_date',values.start_date)
+      formData.append('end_date',values.end_date)
+      formData.append('productImage',pictures[0])
+      // formData.append('',values.end_date)
+      const res = await postEquipment(formData)
       toast({
         title: 'Product Listed!!',
         description: "Your Product have been Listed.Keep on checking your inbox & Order Received",
@@ -100,6 +111,7 @@ export const Rent = () => {
   });
   const [visible, setVisible] = useState(false);
   const [a, setA] = useState([]);
+  // const [pictures, setPictures] = useState([]);
   const handleSetVisible = () => {
     setVisible(true);
   };
@@ -116,6 +128,9 @@ export const Rent = () => {
   const onRemove = (id) => {
     console.log("Remove image id", id);
   };
+  const onDrop = (picture) => {
+        setPictures(picture)
+}
   return (
    <div>
       {window.sessionStorage.getItem('token') ? 
@@ -144,7 +159,7 @@ export const Rent = () => {
           name="equipment_name"
           selectProps={{ placeholder: "Select Equipment Name" }}
         >
-          <option value="Tractor">Trac0tor</option>
+          <option value="Tractor">Tractor</option>
           <option value="Axe">Axe</option>
           <option value="Sprinkler">Sprinkler</option>
           <option value="Spade">Spade</option>
@@ -221,14 +236,21 @@ export const Rent = () => {
             inputProps={{ type: "date" }}
           />
         </Flex>
-        <RMIUploader
+        <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={onDrop}
+                imgExtension={['.jpg','.jpeg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
+        {/* <RMIUploader
           isOpen={visible}
           hideModal={hideModal}
           onSelect={onSelect}
           onUpload={onUpload}
           onRemove={onRemove}
           dataSources={a}
-        />
+        /> */}
         <ButtonGroup ml="35%" mt="7">
           <ResetButton mr="10" w="100px">
             Reset
